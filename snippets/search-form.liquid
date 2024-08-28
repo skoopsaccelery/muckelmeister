@@ -1,0 +1,31 @@
+{{ 'search-form.css' | asset_url|  stylesheet_tag }}
+
+<div class="search-form__width">
+  <search-form class="hidden">
+    <div class="search-form__container container bg-white">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+        <input
+          placeholder="Suche nach Schlagwörtern..."
+          id="Search"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+        >
+        <input name="options[prefix]" type="hidden" value="last">
+    
+        <div class="search-form__buttons">
+          <div class="search-form__close bg-pastelgreen bodytext t-black t-center" action="close">Schließen</div>
+          <input type="submit" value="Ergebnisse" class="search-form__submit bg-darkgreen bodytext t-white t-bold m-0">
+        </div>
+      </form>
+    </div>
+  </search-form>
+</div>
+
+<script src="{{ 'search-form.js' | asset_url }}" defer></script>

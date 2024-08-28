@@ -1,0 +1,104 @@
+{{ 'cart-drawer.css' | asset_url| stylesheet_tag }}
+
+<div class="cart-drawer__width">
+    <div id="cart-drawer" class="overlay hidden">
+        <div class="cart-drawer">
+            <div class="cart-drawer__content">
+                <div class="cart-drawer__close">
+                    <span class="subheading t-black t-bold">Dein Warenkorb</span>
+                    {% render 'icon-close' %}
+                </div>
+                <div class="cart-drawer__empty m-20 {% if cart.item_count > 0 %}hidden{% endif %}">
+                    <span class="bodytext">Dein Warenkorb ist leer</span>
+                </div>
+                <form action="/cart/update" method="post" class="cart-items-form">
+                    <cart-items>
+                        {% for item in cart.items %}
+                            <div class="cart-items__wrapper">
+                                <div class="cart-items__card links">
+                                    {% if item.variant.image %}
+                                            <img src="{{ item.variant.image |  image_url: width: '300x300' }}" alt="{{ item.image.alt }}" width="30%" height="30%" style="min-height: 110px" loading="lazy">
+                                        {% else %}
+                                            <img src="{{ item.image |  image_url: width: '300x300' }}" alt="{{ item.image.alt }}" width="30%" height="30%" style="min-height: 110px" loading="lazy">
+                                    {% endif %}
+                                    <div class="cart-items__card-info">
+                                        <div>
+                                            <span class="overline t-black">{{ item.product.title }}</span>
+                                            {% unless item.variant.title == 'Default Title' %}
+                                                <span class="overline t-black">{{ item.variant.title }}</span>
+                                            {% endunless %}
+                                        </div>
+                                        <ul class="cart-items__properties">
+                                            {% for property in item.properties %}
+                                                {% unless property[0] contains  "_" or  property[0] contains  "design" %}
+                                                    <li class="overline t-black"><span class="t-bold">{{ property[0] | replace: "line", "Text " }}:</span> {{ property[1] }}</li>
+                                                {% endunless %}
+                                            {% endfor %}
+                                        </ul>
+                                        <div class="cart-items__quantity-wrapper">
+                                            <div class="cart-items__quantity-container" data-variant-key="{{ item.key }}">
+                                                <button class="cart-items__adjust-quantity" action="minus" >
+                                                    {% render 'icon-minus' %}
+                                                </button>
+                                                <span class="cart-items__quantity-number caption t-black t-bold">
+                                                    {{ item.quantity }}
+                                                </span>
+                                                <button class="cart-items__adjust-quantity" action="plus">
+                                                    {% render 'icon-plus' %}
+                                                </button>
+                                            </div>
+                                                <div class="cart-drawer-loader" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-items__card-prices">
+                                        {% if item.discounted_price == 0 %}
+                                            <div>
+                                                <span class="bodytext t-black t-bold t-linethrough">{{ item.original_price | money }}</span>
+                                                <span class="cart-items__card-badge overline bg-darkgreen t-white">Kostenlos</span>
+                                            </div>
+                                        {% else %}    
+                                        {% if item.variant.compare_at_price %}
+                                            <div>
+                                                <span class="overline t-black t-bold t-linethrough">{{ item.variant.compare_at_price | money }}</span>
+                                                <span class="bodytext t-black t-bold">{{ item.variant.price | money }}</span>
+                                                <span class="cart-items__card-badge overline bg-darkgreen t-white">
+                                                    {% assign productPrice = item.variant.price |  divided_by: 100.0 %}
+                                                    {% assign productCompareAtprice = item.variant.compare_at_price |  divided_by: 100.0 %}
+                                                    {% assign productDiscountMinus = productCompareAtprice |  minus: productPrice %}  
+                                                    {% assign productDiscountDivide = productDiscountMinus |  divided_by: productCompareAtprice %}
+                                                    {% assign productDiscount = productDiscountDivide |  times: 100 %}
+                                                    {{ productDiscount | ceil }}
+                                                    % gespart
+                                                </span>
+                                            </div>
+                                        {% else %}
+                                            <div>
+                                                <span class="bodytext t-black t-bold">{{ item.final_price | money }}</span>
+                                            </div>    
+                                        {% endif %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="cart-drawer__prices">
+                            <span class="bodytext t-black t-bold">Gesamtpreis: {{ cart.total_price | money }}</span>
+                            <span class="caption t-black">Inkl. MwSt. - Rabattcodes werden erst im Checkout eingegeben</span>
+                        </div>
+                    </cart-items>
+                </form>
+                <div class="cart-drawer__buttons">
+                    <a class="cart-drawer__buttons-element bg-pastelgreen bodytext t-black t-center" href="/products">Weiter Shoppen</a>
+                    <a class="cart-drawer__buttons-element bg-darkgreen bodytext t-white t-center t-bold" href="/checkout">Zum Checkout</a>
+                </div>
+                <div class="cart-drawer__payments">
+                    {% render 'icon-payments' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ "cart.js" | asset_url }}" defer></script>
+<script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>

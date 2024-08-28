@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "section_hero_02_CQmwac": {
+      "type": "section-hero-02",
+      "blocks": {
+        "block_9De969": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/MM_Brettchen_Muckel_Loewe_Baer_02.jpg",
+            "card_heading": "Einzigartigkeit",
+            "card_text": "Jedes Frühstücksbrettchen ist ein Unikat und trägt den Namen des Kindes, was es zu einem besonderen und persönlichen Geschenk macht. 🌟"
+          }
+        },
+        "block_e7fXfR": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/MM_Brettchen_Muckel_Loewe_Baer_05.jpg",
+            "card_heading": "Langlebigkeit",
+            "card_text": "Durch die hochwertige Verarbeitung und personalisierte Gravur bleibt das Brettchen lange ein treuer Begleiter bei den Mahlzeiten. 🥪"
+          }
+        },
+        "block_9VRyWq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/MM_Brettchen_Muckel_Loewe_Baer_01.jpg",
+            "card_heading": "Emotionaler Wert",
+            "card_text": "Das Brettchen schafft unvergessliche Erinnerungen und begleitet das Kind bei vielen schönen Frühstücksmomenten, wodurch eine tiefere Bindung entsteht. 💖"
+          }
+        }
+      },
+      "block_order": [
+        "block_9De969",
+        "block_e7fXfR",
+        "block_9VRyWq"
+      ],
+      "settings": {
+        "hero_heading": "Frühstücksbrettchen",
+        "hero_subheading": "Erhalte ein Frühstücksbrettchen im Wert von 14,99€ gratis zu deiner Bestellung",
+        "button_text": "Zum Brett",
+        "button_url": "",
+        "hero_product": "muckelmeisterbrett-mit-personalisierung",
+        "hero_background_image": "shopify:\/\/shop_images\/HeaderBild_Startseite_MM_1.jpg"
+      }
+    },
+    "section-hero-02-1": {
+      "type": "section-hero-02-1",
+      "settings": {
+        "background_color": "#ffffff",
+        "info_text": "<p><strong>Aktion: Gratis Frühstücksbrettchen bei jedem Einkauf <\/strong>Ich habe aufregende Neuigkeiten für dich! In unserem Onlineshop gibt es jetzt eine tolle Aktion: Beim Kauf eines beliebigen Artikels erhältst du ein personalisiertes Frühstücksbrettchen gratis dazu. Wie funktioniert das? Ganz einfach:<\/p><ol><li><strong>Frühstücksbrettchen konfigurieren<\/strong>: Wähle zuerst dein persönliches Frühstücksbrettchen aus und gestalte es nach deinen Wünschen.<\/li><li><strong>In den Warenkorb legen<\/strong>: Lege das konfigurierte Brettchen in deinen Warenkorb.<\/li><li><strong>Einen weiteren Artikel auswählen<\/strong>: Stöbere durch unser vielfältiges Sortiment und suche dir einen weiteren Artikel aus, der dir gefällt.<\/li><li><strong>Rabatt genießen<\/strong>: Sobald beide Artikel im Warenkorb liegen, wird der Preis für das Brettchen automatisch abgezogen.<\/li><\/ol><p>Warum solltest du teilnehmen? <\/p><ul><li><strong>Einzigartige Geschenke<\/strong>: Unsere personalisierten Produkte sind perfekt, um deinen Liebsten eine Freude zu machen.<\/li><li><strong>Besondere Momente<\/strong>: Schaffe unvergessliche Erinnerungen mit einem individuellen Geschenk, das von Herzen kommt.<\/li><li><strong>Vielfältiges Sortiment<\/strong>: Von Beißringen bis zu Erinnerungsboxen – finde etwas, das perfekt zu dir passt.<\/li><\/ul><p>Verpasse nicht diese Gelegenheit, deinem Einkauf eine persönliche Note zu verleihen. Ich bin sicher, du wirst begeistert sein! <\/p><p>Accelery Dienstleistungsgesellschaft GmbH | Hohe Bleichen 8 | 20354 Hamburg | Nur solange der Vorrat reicht! Aktionszeitraum: 01.07.2024 bis 31.12.2024<\/p>"
+      }
+    },
+    "main-product-sale": {
+      "type": "main-product-sale",
+      "settings": {
+      }
+    },
+    "1716524834c8c370e3": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1716524857ada697aa": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "section_newsletter_LfRd7Y": {
+      "type": "section-newsletter",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "section_hero_02_CQmwac",
+    "section-hero-02-1",
+    "main-product-sale",
+    "1716524834c8c370e3",
+    "1716524857ada697aa",
+    "section_newsletter_LfRd7Y"
+  ]
+}

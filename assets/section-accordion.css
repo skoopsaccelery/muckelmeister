@@ -1,0 +1,55 @@
+.accordion-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 12px;
+}
+
+.accordion-block-wrapper::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #727271;
+    opacity: 0.3;
+    margin: 0 0 20px;
+}
+
+.accordion-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+    flex: 0 0 auto;
+}
+
+.accordion-icon > svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*Functions Modifier*/
+.icon-active {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+@media screen and (min-width:768px) {
+    .accordion-container {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .accordion-container {
+        padding: 0;
+    }
+}

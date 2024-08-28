@@ -1,0 +1,176 @@
+{{ 'main-collection-bundles.css' | asset_url| stylesheet_tag }}
+{{ 'main-product.css' | asset_url| stylesheet_tag }}
+<script src="{{ 'cropper.min.js' | asset_url}}" defer="defer"></script>
+<link rel="preload stylesheet" href="{{ 'cropper.min.css' | asset_url }}" as="style">
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxq2cu9y7QJPxhZbg85MRqupA_MlhMBWY&callback=initAutocomplete&libraries=places&v=weekly"
+    defer="defer"></script>
+
+
+<div class="container">
+    {% if collection %}
+    <!-- Bundles Progress Bar -->
+    <div class="collection-bundles__progress-wrapper">
+        <div class="collection-bundles__progress-bar">
+            <div class="collection-bundles__progress-bar__fill" style="width: 0%"></div>
+        </div>
+        <span class="caption t-black"><span id="progress-count">0</span> von {{ collection.products.size }} Produkten
+            personalisiert</span>
+    </div>
+    <!-- Bundles Progress Bar -->
+
+    <!-- Bundle Products-->
+    <div class="collection-bundles__steps">
+        {% for product in collection.products %}
+        <div class="collection-bundles__card">
+            <div class="collection-bundles__products">
+                <div class="collection-bundles__slideshow-wrapper">
+                    <div class="collection-bundles__slideshow">
+                        {% if product.variants.size > 1 %}
+                        {% for image in product.images %}
+                        {% assign imageIsVariant = false %}
+                        {% for variant in product.variants %}
+                        {% if variant.image.src == image.src %}
+                        {% assign imageIsVariant = true %}
+                        {% endif %}
+                        {% endfor %}
+                        {% unless imageIsVariant %}
+                        <div class="collection-bundles__products-img collection-bundles__products-img_{{ product.variants.first.id }}"
+                            style="background-image: url({{ image | image_url }});"
+                            data-variant-id=""></div>
+                        {% endunless %}
+                        {% endfor %}
+                        {% for variant in product.variants %}
+                        <div class="collection-bundles__products-img collection-bundles__products-img_{{ product.variants.first.id }}"
+                            style="background-image: url({{ variant.image | image_url }});"
+                            data-variant-id="{{ variant.id }}"></div>
+                        {% endfor %}
+                        {% else %}
+                        {% for image in product.images %}
+                        <div class="collection-bundles__products-img collection-bundles__products-img_{{ product.variants.first.id }}"
+                            style="background-image: url({{ image | image_url }});"
+                            data-variant-id=""></div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="product-slideshow__nav">
+                        {% render 'icon-arrow' %}
+                        {% render 'icon-arrow' %}
+                    </div>
+                    <div class="product-slideshow__points">
+                        {% for image in product.images %}
+                        <div class="product-slideshow__points-element"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="collection-bundles__product-form">
+                <div class="collection-bundles__products-info">
+                    <span class="bodytext t-black">{{ product.title }}</span>
+                    <span class="subheading t-black t-bold">{{ product.price | money }}</span>
+                </div>
+                <div class="product-form__custom-heading m-b-20">
+                    <span class="subheading t-bold t-black">Personalisierung</span>
+                    <span class="bodytext t-grey">Gestalte dein individuelles Geschenk</span>
+                    <!-- Configure Message -->
+                    <div class="product-form__configure-msg">
+                        <span class="overline t-black"><strong class="t-bold">Wichtig:</strong> Bitte fülle das <strong
+                                class="t-bold">Personalisierungsformular</strong> aus und schaue dir deine
+                            Personalisierung in unserer Vorschau an. Danach kannst du das Produkt in den Warenkorb
+                            packen.</span>
+                    </div>
+                </div>
+                <!-- Collection Bundles - Productform -->
+                {% form 'product', product %}
+                <form class="collection-bundles__form" action="/cart/add" method="post">
+                    {% if product.variants.size > 1 %}
+                        <div class="product-variants">
+                            {% render 'main-product-variants' product: product %}
+                        </div>
+                    {% endif %}
+                    <!-- Hidden Part-->
+                    <input class="variant-storage" type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                    <input min="1" type="number" id="quantity" name="quantity" value="1" class="hidden" />
+                    <!-- Hidden Part-->
+                    <svg-product-form class="product-form__svg svg_id_{{ product.variants.first.id }}"
+                        data-product="{{ product.variants.first.sku }}" data-variation="{{ product.variants.first.id }}"
+                        data-gallery="collection-bundles__products-img_{{ product.variants.first.id }}">
+                    </svg-product-form>
+                    <input style="display: none;" type="submit" value="In den Warenkorb"
+                        class="submit-btn t-white btntext bg-darkgreen submit-btn__collapsed" />
+                    <div class="product-form__success product-form__success-collapsed">
+                        <span>{% render 'icon-success' %}</span>
+                        <span class="caption">Produkt ist im Warenkorb</span>
+                    </div>
+                    <div class="product-form__error product-form__error-collapsed">
+                        <span>{% render 'icon-error' %}</span>
+                        <span class="caption">Es fehlen noch Optionen</span>
+                    </div>
+                </form>
+                {% endform %}
+                <!-- End Collection Bundles - Productform -->
+                <div class="bodytext">{{ product.description }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Bundle Products-->
+    {% endif %}
+</div>
+
+<script src="{{ 'studio-isolated.js' | asset_url }}" defer></script>
+<script src="{{ 'main-product-form.js' | asset_url }}" defer></script>
+<script src="{{ 'main-product-form-actions.js' | asset_url }}" defer></script>
+<script src="{{ 'main-bundles.js' | asset_url }}" defer></script>
+
+
+<style>
+    /* HTML: <div class="loader"></div> */
+    .loader {
+        width: 65px;
+        aspect-ratio: 1;
+        --g: radial-gradient(farthest-side, #0000 calc(95% - 3px), #fff calc(100% - 3px) 98%, #0000 101%) no-repeat;
+        background: var(--g), var(--g), var(--g);
+        background-size: 30px 30px;
+        display: block !important;
+        animation: l10 1.5s infinite;
+        top: calc(50% - 65px);
+        left: calc(50% - 65px);
+        width: 65px;
+        position: absolute;
+    }
+
+    .lds-ripple {
+        display: inline-block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        left: 0;
+        background: #00000042;
+        top: 0;
+    }
+
+    @keyframes l10 {
+        0% {
+            background-position: 0 0, 0 100%, 100% 100%;
+        }
+
+        25% {
+            background-position: 100% 0, 0 100%, 100% 100%;
+        }
+
+        50% {
+            background-position: 100% 0, 0 0, 100% 100%;
+        }
+
+        75% {
+            background-position: 100% 0, 0 0, 0 100%;
+        }
+
+        100% {
+            background-position: 100% 100%, 0 0, 0 100%;
+        }
+    }
+</style>

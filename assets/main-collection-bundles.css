@@ -1,0 +1,112 @@
+.collection-bundles__progress-wrapper {
+    margin: 0 0 30px 0;
+}
+.collection-bundles__progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #D0E5DE;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: 0 0 10px 0;
+}
+
+.collection-bundles__progress-bar__fill {
+    position: absolute;
+    min-width: 0%;
+    transition: min-width 0.2s;
+    height: 10px;
+    background-color: #307961;
+}
+
+.collection-bundles__steps {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.collection-bundles__step-onscroll {
+    overflow: scroll;
+}
+
+.collection-bundles__steps::-webkit-scrollbar {
+    display: none;
+}
+
+.collection-bundles__card {
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+
+.collection-bundles__products {
+    gap: 20px;
+    margin: 0 0 20px 0;
+}
+
+.collection-bundles__slideshow-wrapper { 
+    position: relative;
+}
+
+.collection-bundles__slideshow {
+    display: flex;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.collection-bundles__slideshow::-webkit-scrollbar {
+    display: none;
+}
+
+.collection-bundles__slideshow-points-element {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #36876c;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.collection-bundles__products-img {
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: start;
+    width: 100%;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.collection-bundles__products-info {
+    margin: 20px 0;
+}
+
+.collection-bundles__products-info > span {
+    display: block;
+}
+
+.product-form__svg {
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .collection-bundles__card {
+        display: flex;
+        gap: 20px;
+    }
+
+    .collection-bundles__products {
+        width: 50%;
+    }
+
+    .collection-bundles__product-form {
+        width: 50%;
+    }
+}

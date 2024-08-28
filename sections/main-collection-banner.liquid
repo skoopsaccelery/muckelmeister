@@ -1,0 +1,12 @@
+{{ 'main-collection.css' | asset_url| stylesheet_tag }}
+
+{% if collection %}
+    <div class="collection-banner" style="background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%), url({{ collection.featured_image |  image_url }});">
+        <div class="collection-banner__text-wrapper container">
+            <div class="collection-banner__text">
+                <h1 class="subheading m-0 t-black">{{ collection.title }}</h1>
+                <h2 class="bodytext m-0 t-grey">{{ collection.metafields.custom.collection_subline | metafield_tag}}</h2>
+            </div>
+        </div>
+    </div>
+{% endif %}

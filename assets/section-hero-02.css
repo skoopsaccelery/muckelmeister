@@ -1,0 +1,112 @@
+.hero-section__rating-widget {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.hero-section__rating-widget-list,
+.hero-section__benefits-list {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3px;
+}
+
+.hero-section__benefits-list {
+    justify-content: space-between;
+}
+
+.hero-section__rating-widget-element {
+    width: 20px;
+}
+
+.hero-section__rating-widget-overall {
+    margin-left: 20px;
+}
+
+.hero-section__rating-widget-element > svg {
+    display: block;
+}
+
+.hero-section__benefits-elements {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-section__benefits-elements > svg {
+    display: block;
+    width: 15px;
+    height: 15px;
+}
+
+.hero-section__products {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.hero-section__products::-webkit-scrollbar {
+    display: none;
+}
+
+.hero-section__product-card {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.hero-section__product-card > img {
+    border-radius: 10px;
+}
+
+.hero-section__product-card-cta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.hero-section__product-card-cta > span {
+    display: block;
+}
+
+.hero-section__product-card-cta-link {
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-section__products-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.hero-section__products-navigation-element {
+    display: block;
+    width: 33%;
+    height: 2px;
+    border-radius: 2px;
+    outline: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section__products-navigation-element__active {
+    background-color: rgba(0, 0, 0, 0.2);
+}

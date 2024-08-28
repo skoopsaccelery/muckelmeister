@@ -1,0 +1,133 @@
+.slidemenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100dvh;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.slidemenu-container__close-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slidemenu-container__back {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.slidemenu-container__back > svg {
+    display: block;
+    width: 15px;
+    transform: rotate(180deg);
+}
+
+.slidemenu-container__close {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #C5C9D6;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 12px 0;
+}
+
+.slidemenu-container__close > svg {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+.slidemenu-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    min-height: 95dvh;
+    bottom: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 0 12px;
+    width: 90%;
+    overflow: hidden;
+    transition: opacity 0.2s;
+}
+
+.slidemenu-container__nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    transition: opacity 0.2s;
+}
+
+.slidemenu-container__nav-content {
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.slidemenu-container__nav-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.slidemenu-container__nav-element > svg {
+    display: block;
+    width: 25px;
+    height: auto;
+}
+
+.slidemenu-container__nav-element-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.slidemenu-container__nav-socials {
+    margin: 0 0 12px 0;
+}
+
+.slidemenu-container__nav-socials::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #C5C9D6;
+    margin: 12px 0;
+}
+
+/* Slidemenu Function Classes */
+.nav-hidden {
+    transform: translateX(110%);
+    transition: transform 0.2s ease-in-out;
+}
+
+.content-hidden {
+    transform: translateX(-110%);
+    transition: transform 0.2s ease-in-out;
+}
+
+.opacity-hidden {
+    opacity: 0;
+    transition: opacity 0.2s;
+}

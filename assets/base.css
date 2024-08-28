@@ -1,0 +1,199 @@
+.jdgm-prev-badge {
+    text-align: center;
+    font-family: 'Nunito Bold', sans-serif;
+}
+
+html,
+body,
+footer {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Fonts */
+.herotext {
+    font-family: 'Bhatoshine Regular', sans-serif;
+    font-size: 48px;
+}
+
+.heading {
+    font-family: 'Quicksand Bold', sans-serif;
+    font-size: 31px;
+}
+
+.subheading {
+    font-family: 'Quicksand Medium', sans-serif;
+    font-size: 25px;
+}
+
+.bodytext {
+    font-family: 'Nunito Regular', sans-serif;
+    font-size: 16px;
+}
+
+.btntext {
+    font-family: 'Quicksand Bold', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.caption {
+    font-family: 'Nunito Regular', sans-serif;
+    font-size: 13px;
+}
+
+.overline {
+    font-family: 'Nunito Regular', sans-serif;
+    font-size: 10px;
+}
+
+.links {
+    text-decoration: none;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.t-linethrough {
+    text-decoration: line-through;
+}
+
+.t-underline {
+    text-decoration: underline;
+}
+
+.t-bold {
+    font-family: 'Nunito Bold', sans-serif;
+}
+
+.t-opacity-50 {
+    opacity: 0.5;
+}
+.shopify-policy__title {
+    font-family: 'Quicksand Bold', sans-serif;
+}
+
+.shopify-policy__body {
+    font-family: 'Nunito Regular', sans-serif;
+}
+
+.customily_option,
+.customily-close-button,
+.jdgm-rev-widg__title,
+.jdgm-write-rev-link,
+.jdgm-rev-widg__summary,
+.jdgm-rev {
+    font-family: 'Nunito Regular';
+}
+
+#customily-cart-btn {
+    transform: scale(1) !important;
+}
+
+.jdgm-write-rev-link {
+    border-radius: 10px !important;
+}
+
+.jdgm-rev__buyer-badge {
+    border-radius: 3px !important;
+}
+
+/* Colors */
+.t-black {
+    color: #222;
+}
+
+.t-white {
+    color: #fff;
+}
+
+.t-grey {
+    color: #727271;
+}
+
+.t-darkgreen {
+    color: #307961;
+}
+
+.bg-pastelgreen {
+    background-color: #D0E5DE;
+}
+
+.bg-darkgreen {
+    background-color: #307961;
+}
+
+.bg-orange {
+    background-color: rgba(248, 221, 195, 0.1);
+}
+
+.bg-black {
+    background-color: #222;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.dropshadow {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+/* Margins and Paddings */
+.m-auto {
+    display: block;
+    margin: auto;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-10 {
+    margin: 10px 0;
+}
+
+.m-20 {
+    margin: 20px 0;
+}
+
+.m-b-20 {
+    margin: 0 0 20px;
+}
+
+.p-12 {
+    padding: 12px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.container {
+    padding: 12px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Scroll Behaviour */
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}

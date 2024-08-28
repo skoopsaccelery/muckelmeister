@@ -1,0 +1,82 @@
+<a class="collection-products__card links" href="{{ product.url }}" data-product-handles={{ product.metafields.bundles.product__handles }}>
+    <div class="collection-products__card-img-wrapper">
+        {% render 'main-product-badges', product: product %}
+        <img class="collection-products__card-img m-b-20" src="{{ product.featured_image.src | image_url: width: '500x500' }}" alt="{{ product.image.alt }}" width="100%" height="auto" loading="lazy">
+        <ul class="rating-{{ product.id }} product-card-rating m-0">
+            <!-- <li class="product-rating-element">{% render 'icon-rating' %}</li> -->
+            <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+            <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+            <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+            <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+            <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+            <li class="product-card-rating-element product-rating-label overline t-black">(0)</li>
+        </ul>
+
+        <script>
+            $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").ready(() => {
+
+                $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").css("display", "none !important");
+                
+                // Get data-average-rating
+                var rating = $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").attr("data-average-rating");
+                var count = $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").attr("data-number-of-reviews");
+
+                rating = parseFloat(rating);
+                console.log(rating);
+
+                if (rating > 0) console.log(rating);
+
+                // Fill stars
+                const maxStars = 5;
+                for (let i = 0; i < maxStars; i++) {
+                    if (rating >= i + 1) {
+                        $(".rating-{{ product.id }} > .product-card-rating-element").eq(i).html(`{% render 'icon-rating' %}`);
+                    } else if (rating >= i + 0.5) {
+                        $(".rating-{{ product.id }} > .product-card-rating-element").eq(i).html(`{% render 'icon-rating-half' %}`);
+                    } else {
+                        $(".rating-{{ product.id }} > .product-card-rating-element").eq(i).html(`{% render 'icon-rating-empty' %}`);
+                    }
+                }
+
+                $(".rating-{{ product.id }} > .product-rating-label").html("(" + count + ")");
+            });
+        </script>
+
+
+    <div style="display:none" id="judgeme-{{ product.id }}">
+        <div class='jdgm-widget jdgm-preview-badge'>
+            {{ product.metafields.judgeme.badge }}
+        </div>
+    </div>
+    </div>
+    <span class="collection-products__card-title caption t-black t-bold">{{ product.title }}</span>
+    {% if product.variants.size > 1 %}
+        <div class="collection-products_card-variants m-b-20">
+            {% for variant in product.variants %}
+                {% if variant.image != blank %}
+                    <img class="collection-products_card-variants-img" src="{{ variant.image.src |  image_url: width: '50x50' }}" alt="{{ variant.image.alt }}" width="20px" height="auto" loading="lazy">
+                {% endif %}
+            {% endfor %}
+            <span class="overline t-black">({{ product.variants.size }} Varianten)</span>
+        </div>
+    {% endif %}
+    <div class="collection-products__card-prices">
+        {% if product.compare_at_price %}
+            <div>
+                <span class="overline t-black t-linethrough">{{ product.compare_at_price | money}}</span>
+                <span class="caption t-black t-bold">{{ product.price | money }}</span>
+            </div>
+            <span class="collection-products__card-discountbadge overline bg-darkgreen t-white">
+                    {% assign productPrice = product.price |  divided_by: 100.0 %}
+                    {% assign productCompareAtprice = product.compare_at_price |  divided_by: 100.0 %}
+                    {% assign productDiscountMinus = productCompareAtprice |  minus: productPrice %}  
+                    {% assign productDiscountDivide = productDiscountMinus |  divided_by: productCompareAtprice %}
+                    {% assign productDiscount = productDiscountDivide |  times: 100 %}
+                    {{ productDiscount | ceil }}
+                % gespart
+            </span>
+            {% else %}
+            <span class="caption t-black t-bold">{{ product.price | money}}</span>
+        {% endif %}
+    </div>
+</a>

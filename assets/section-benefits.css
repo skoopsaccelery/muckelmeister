@@ -1,0 +1,50 @@
+.benefits {
+    margin: 64px auto;
+}
+
+.benefits__head {
+    margin: 0 0 48px 0;
+}
+
+.benefits__head > span {
+    display: block;
+}
+
+.benefits__container {
+    position: relative;
+}
+
+.benefits__blocks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.benefits__block {
+    flex: 0 0 40%;
+}
+
+.benefits__block-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.benefits__image {
+    display: block;
+    margin: -24px auto;
+}
+
+@media screen and (min-width: 768px) {
+    .benefits__image {
+        width: 50%;
+        margin: -96px auto;
+    }
+
+    .benefits__block {
+        flex: 0 0 30%;
+    }
+}

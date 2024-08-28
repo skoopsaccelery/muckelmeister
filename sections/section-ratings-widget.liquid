@@ -1,0 +1,124 @@
+{{ 'section-widgets.css' | asset_url | stylesheet_tag }}
+
+<div class="container">
+    <h2 class="heading t-grey">Unsere Kunden sprechen</h2>
+    <div class="widget-overall__rating">
+        <span class="bodytext t-bold t-black">Hervorragend</span>
+        <ul class="widget-rating__list">
+            <li class="widget-rating__list-element">{% render 'icon-rating' %}</li>
+            <li class="widget-rating__list-element">{% render 'icon-rating' %}</li>
+            <li class="widget-rating__list-element">{% render 'icon-rating' %}</li>
+            <li class="widget-rating__list-element">{% render 'icon-rating' %}</li>
+            <li class="widget-rating__list-element">{% render 'icon-rating' %}</li>
+            <li class="widget-rating__list-element-text caption t-black">aus 138 Bewertungen</li>
+        </ul>
+    </div>
+    <div class="widgets">
+        {% assign blocks = section.blocks %}
+        {% for block in blocks %}
+            {% if block.type == 'widget_card' %}
+                <div class="widget-card dropshadow">
+                    <div class="widget-card__head">
+                        <div class="widget-card__head-left flex-column">
+                            <span class="widget-card__head-name bodytext t-bold t-black">{{ block.settings.customer_name }}</span>
+                            <span class="overline t-grey">{{ block.settings.review_date }}</span>
+                        </div>
+                        <div class="widget-card__head-verified">
+                            {% render 'icon-verified' %}
+                            <span class="overline t-grey">Verifizierter Kunde</span>
+                        </div>
+                    </div>
+                    <ul class="widget-card__list">
+                        <li class="widget-card__list-element">{% render 'icon-rating' %}</li>
+                        <li class="widget-card__list-element">{% render 'icon-rating' %}</li>
+                        <li class="widget-card__list-element">{% render 'icon-rating' %}</li>
+                        <li class="widget-card__list-element">{% render 'icon-rating' %}</li>
+                        <li class="widget-card__list-element">{% render 'icon-rating' %}</li>
+                    </ul>
+                    <div class="widget-card__caption">
+                        <span class="caption t-grey">"{{ block.settings.review_text }}"</span>
+                        {% assign selected_product = block.settings.product %}
+                        <a href="{{ selected_product.url }}" class="widget-card__rated-product links">
+                            <img class="widget-card__rated-product__img" src="{{ selected_product.featured_image.src | image_url: width: '200x200' }}" alt="{{ selected_product.featured_image.alt }}" width="20%" height="auto">
+                            <div class="widget-card__rated-product__infos">
+                                <span class="caption t-grey">{{ selected_product.title }}</span>
+                                <span class="bodytext t-black t-bold">{{ selected_product.price | money }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% elsif block.type == '@app' %}
+                <div class="judgeme-widget hidden">
+                    {% render block %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="widget-card__navigation">
+        {% for block in blocks %}
+            {% if block.type == 'widget_card' %}
+                <div class="widget-card__navigation-element"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    // Get Overall Ratings Data
+    $(document).ready(() => {
+        var allRatingsCount = $(".jdgm-carousel-number-of-reviews").attr("data-number-of-reviews");
+        var overallRating = $(".jdgm-all-reviews-rating").attr("data-score");
+
+        allRatings = parseInt(allRatingsCount);
+        overallRating = parseFloat(overallRating);
+
+        $(".widget-rating__list-element-text").html(overallRating + " von 5 " + "aus " + allRatingsCount + " Bewertungen");
+    })
+</script>
+
+<script src="{{ 'section-widgets.js' | asset_url }}" defer></script>
+
+{% schema %}
+    {
+        "name": "Ratings Widget",
+        "blocks": [
+            {
+                "type": "widget_card",
+                "name": "Widget Card",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "customer_name",
+                        "label": "Customer Name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "review_date",
+                        "label": "Review Date"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "review_text",
+                        "label": "Review Text"
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    }
+                ]
+            },
+            {
+                "type": "@app"
+            }
+        ],
+        "settings": [],
+        "presets": [
+            {
+                "name": "Ratings Widget",
+                "settings": {}
+            }
+        ]
+    }
+    {% endschema %}
+    

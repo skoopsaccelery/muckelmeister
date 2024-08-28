@@ -1,0 +1,21 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "announce": {
+      "type": "main-announcementbar",
+      "settings": {
+        "announce": "GRATIS Versand für Bestellungen ab 50€! 😍"
+      }
+    },
+    "header": {
+      "type": "main-header",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "announce",
+    "header"
+  ]
+}

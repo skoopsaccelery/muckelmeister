@@ -1,0 +1,46 @@
+{{ 'main-collection.css' | asset_url| stylesheet_tag }}
+
+{% if collection %}
+    <div class="container">
+        <div class="collection-products">
+        {% assign products = collection.products | sort: 'best-selling' %}
+        {% for product in products %}
+            {% render 'product-card', product: product %}
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        //Hide JudgeMe Badges if Rating is 0
+        $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").ready(() => {
+            let productRatings = document.querySelectorAll('.product-card-rating');
+                console.log(productRatings)
+
+                productRatings.forEach(cardRating => {
+                    let cardRatingCount = cardRating.children[5].outerText;
+
+                    if (cardRatingCount === '(0)' || cardRatingCount === '(undefined)'){
+                        cardRating.style.display = 'none'
+                    }
+                });
+        });
+    
+        // Hide NewBadge after 14 days
+        let productElements = document.querySelectorAll('.product-badges');
+
+        productElements.forEach((element) => {
+            let publishDateString = element.getAttribute('data-product-publish-date');
+            let publishDate = new Date(publishDateString);
+            let currentDate = new Date();
+            let timeDifference = currentDate - publishDate
+            let daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+            let newBadge = element.querySelector('.new');
+            if (daysDifference < 14) {
+                newBadge.classList.remove('hidden')
+            }
+        })
+    });
+</script>

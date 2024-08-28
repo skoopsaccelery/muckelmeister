@@ -1,0 +1,141 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "collapsible_content_AJYUfq": {
+      "type": "section-accordion",
+      "blocks": {
+        "text_THzMFr": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Wie erhalte ich meine Rechnung?",
+            "accordion_element_richtext": "<p>Um sowohl die Umwelt zu schützen als auch die Überraschung für den Beschenkten zu wahren, fügen wir unseren Paketen keine gedruckte Rechnung bei. Falls du eine Rechnung benötigst, senden wir dir diese gerne zu. Schreibe uns einfach an <a>support@muckelmeister.de<\/a>, und wir kümmern uns um alles Weitere.<\/p>"
+          }
+        },
+        "text_nhtTrX": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Kann ich meine Bestellung stornieren oder ändern?",
+            "accordion_element_richtext": "<p>Um unsere schnellen Lieferzeiten von 2-3 Werktagen zu gewährleisten, beginnen wir werktags sofort mit der Personalisierung deiner Artikel. Die Aufträge werden automatisch an unser Lagerpersonal übermittelt, ohne dass eine manuelle Datenprüfung erfolgt. Bitte stelle sicher, dass du die korrekten Wunschdaten eingibst. Wenn du Fragen hast oder eine Stornierung vornehmen möchtest, erreichst du uns am besten telefonisch unter +49 4181 928 7383, werktags zwischen 10:00 und 16:00 Uhr.<\/p>"
+          }
+        },
+        "text_bNC9yT": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Kann ich Ihre Artikel auch ohne Personalisierung bestellen?",
+            "accordion_element_richtext": "<p>In unserem Shop findest du ausschließlich personalisierte Geschenkartikel.<\/p>"
+          }
+        },
+        "text_BwAUcy": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Bieten Sie internationale Lieferungen an?",
+            "accordion_element_richtext": "<p>Wir verschicken unsere personalisierten Artikel nach Deutschland und nach Österreich. Unsere aktuellen Versandkosten kannst du <a href=\"https:\/\/muckelmeister.de\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/muckelmeister.de\/policies\/shipping-policy\">hier<\/a> erfahren.<\/p>"
+          }
+        },
+        "text_6WJPPB": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Wie lange dauert es, bis meine Bestellung ankommt?",
+            "accordion_element_richtext": "<p>Wir versenden unsere Artikel werktags innerhalb von 24 Stunden nach Eingang deiner Bestellung. In der Regel erreichen Sendungen nach Deutschland innerhalb von 2-3 Werktagen ihr Ziel. Lieferungen nach Österreich dauern üblicherweise 3-5 Werktage. Zu besonderen Anlässen wie Ostern oder Weihnachten findest du auf der Produktdetailseite Hinweise, ob der Artikel voraussichtlich rechtzeitig ankommt.<\/p><p><\/p>"
+          }
+        },
+        "text_jfzcTT": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Wie kann ich meine Bestellung online verfolgen?",
+            "accordion_element_richtext": "<p>Mit der Bestellbestätigung erhältst du auch einen Tracking-Link, über den du den Status deiner Bestellung jederzeit verfolgen kannst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_THzMFr",
+        "text_nhtTrX",
+        "text_bNC9yT",
+        "text_BwAUcy",
+        "text_6WJPPB",
+        "text_jfzcTT"
+      ],
+      "settings": {
+        "accordion_block_title": "Versand und Zustellung"
+      }
+    },
+    "collapsible_content_Cz7JdV": {
+      "type": "section-accordion",
+      "blocks": {
+        "text_DJkp3z": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Kann ich meinen Wunschtext nach der Bestellung noch ändern?",
+            "accordion_element_richtext": "<p>Um die zügige Bearbeitung deiner Bestellung zu garantieren, starten wir an Werktagen sofort mit der Personalisierung deiner Artikel. Die Bestellungen werden direkt und automatisch an unsere Lagermitarbeiter übermittelt, ohne manuelle Kontrolle der Daten. Bitte achte darauf, dass du alle Wunschdaten korrekt eingibst. Solltest du Fragen haben oder eine Bestellung stornieren wollen, kannst du uns werktags von 10:00 bis 16:00 Uhr unter der Telefonnummer +49 4181 928 7383 erreichen.<\/p>"
+          }
+        },
+        "text_nHHM4x": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Sonderzeichen und andere Sprachen",
+            "accordion_element_richtext": "<p>Wir können <strong>keine<\/strong> Sonderzeichen, Emojis oder Buchstaben, die nicht zum deutschen Alphabet gehören, gravieren.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_DJkp3z",
+        "text_nHHM4x"
+      ],
+      "settings": {
+        "accordion_block_title": "Personalisierung"
+      }
+    },
+    "collapsible_content_eeVXa4": {
+      "type": "section-accordion",
+      "blocks": {
+        "text_J3pr9U": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Was kann ich tun, wenn meine Bestellung beschädigt ist?",
+            "accordion_element_richtext": "<p>Bitte sende uns per E-Mail an <a>support@muckelmeister.de<\/a> Fotos oder Videos des beschädigten Artikels sowie der Versandverpackung. Füge auch deine Bestellnummer aus der Bestellbestätigung hinzu. Wir werden uns an Werktagen umgehend mit Lösungsvorschlägen bei dir melden.<\/p>"
+          }
+        },
+        "text_A68hCA": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Kann ich meine Bestellung nachträglich widerrufen?",
+            "accordion_element_richtext": "<p>Wir bieten nur personalisierte Artikel die spezifisch für dich als Kunden veredelt werden. Diese Artikel sind gemäß § 312g Abs. 2 Satz 1 BGB vom Widerruf ausgeschlossen. Sollte der Artikel bei dir beschädigt angekommen sein, melde dich gerne mit Bildern der Beschädigung und deiner Bestellnummer per E-Mail an <a href=\"mailto:support@muckelmeister.de\" target=\"_blank\" title=\"mailto:support@muckelmeister.de\">support@muckelmeister.de<\/a>. Wir finden eine Lösung für dich.<\/p><p><\/p>"
+          }
+        },
+        "text_JEVeV3": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Wie kann ich Kontakt mit dem Support aufnehmen?",
+            "accordion_element_richtext": "<p>Per E-Mail erreichst du uns unter <a href=\"mailto:support@muckelmeister.de\" target=\"_blank\" title=\"mailto:support@muckelmeister.de\">support@muckelmeister.de<\/a>. Wir stehen dir Werktags zwischen 10:00 - 16:00 Uhr telefonisch unter der +49 4181 928 7383 zur Verfügung.<\/p>"
+          }
+        },
+        "text_jjdUMA": {
+          "type": "text",
+          "settings": {
+            "accordion_element_title": "Was kann ich tun, wenn mein Paket trotz Zustellung im Tracking nicht angekommen ist?",
+            "accordion_element_richtext": "<p>Melde dich gerne bei uns per E-Mail oder Telefonisch. Wir nehmen dann Kontakt mit unserem Versandpartner auf und finden gemeinsam eine Lösung.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_J3pr9U",
+        "text_A68hCA",
+        "text_JEVeV3",
+        "text_jjdUMA"
+      ],
+      "settings": {
+        "accordion_block_title": "Kundenservice und Kontakt"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_AJYUfq",
+    "collapsible_content_Cz7JdV",
+    "collapsible_content_eeVXa4"
+  ]
+}

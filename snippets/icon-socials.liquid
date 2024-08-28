@@ -1,0 +1,22 @@
+<style>
+    .icon-socials__container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .icon-socials__container > a{
+        display: block;
+        width: 30px;
+    }
+</style>
+
+<div class="icon-socials__container">
+    {% if settings.social_instagram_link != blank %}
+        <a class="links" href="{{ settings.social_instagram_link }}">{% render 'icon-instagram' %}</a>
+    {% endif %}
+    {% if settings.social_youtube_link != blank %}
+        <a class="links" href="{{ settings.social_youtube_link }}">{% render 'icon-youtube' %}</a>
+    {% endif %}
+</div>

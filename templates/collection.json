@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "settings": {
+      }
+    },
+    "breadcrumbs": {
+      "type": "section-breadcrumbs",
+      "settings": {
+      }
+    },
+    "main-collection-products": {
+      "type": "main-collection-products",
+      "settings": {
+      }
+    },
+    "main-collection-description": {
+      "type": "main-collection-description",
+      "settings": {
+      }
+    },
+    "newsletter": {
+      "type": "section-newsletter",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-collection-banner",
+    "breadcrumbs",
+    "main-collection-products",
+    "main-collection-description",
+    "newsletter"
+  ]
+}

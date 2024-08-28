@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+	{% render 'pandectes-rules' %}
+	
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW3WX3XN');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- JSON-LD for Structured Data-->
+    {% render 'json-ld' %}
+    <!-- End JSON-LD for Structured Data-->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=0">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+    <title>
+      {{ page_title }}
+    </title>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ 'base.css' | asset_url| stylesheet_tag }}
+    {{ 'fonts.css' | asset_url| stylesheet_tag }}
+
+    {{ content_for_header }}
+  </head>
+  <body id="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW3WX3XN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% sections 'header-group' %}
+    
+    {{ content_for_layout }}
+
+    {% sections 'footer-group' %}
+  </body>
+</html>

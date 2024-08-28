@@ -1,0 +1,118 @@
+{{ 'section-benefits.css' | asset_url | stylesheet_tag }}
+
+<div class="benefits container">
+    <div class="benefits__head">
+        <span class="herotext t-black m-0">{{ section.settings.section_heading }}</span>
+        <span class="bodytext t-grey">{{ section.settings.section_subheading }}</span>
+    </div>
+    <div class="benefits__container">
+        <div class="benefits__blocks">
+            {% assign blocks = section.blocks %}
+            {% for block in blocks %}
+                {% if block.type == 'benefit_top' %}
+                    <div class="benefits__block">
+                        <div class="benefits__block-head">
+                            <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="40px" height="40px">
+                            <span class="benefits_heading bodytext">{{ block.settings.heading }}</span>
+                        </div>
+                        <p class="benefits_description caption">
+                            {{ block.settings.description }}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <img class="benefits__image" src="{{ section.settings.section_image | image_url }}" alt="{{ section.settings.section_image.alt }}" width="80%" height="auto">
+        <div class="benefits__blocks">
+            {% assign blocks = section.blocks %}
+            {% for block in blocks %}
+                {% if block.type == 'benefit_bottom' %}
+                    <div class="benefits__block">
+                        <div class="benefits__block-head">
+                            <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="40px" height="40px">
+                            <span class="benefits_heading bodytext">{{ block.settings.heading }}</span>
+                        </div>
+                        <p class="caption">
+                            {{ block.settings.description }}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script src="{{ 'benefits.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+    "name": "Benefits",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_heading",
+            "label": "Section Heading"
+        },
+        {
+            "type": "text",
+            "id": "section_subheading",
+            "label": "Section Subeading"
+        },
+        {
+            "type": "image_picker",
+            "id": "section_image",
+            "label": "Section Image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "benefit_top",
+            "name": "Benefit Blocks Top",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "Benefit Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Benefit Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "description",
+                    "label": "Benefit Description"
+                }
+            ]
+        },
+        {
+            "type": "benefit_bottom",
+            "name": "Benefit Blocks Bottom",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "Benefit Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Benefit Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "description",
+                    "label": "Benefit Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Benefits",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

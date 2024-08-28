@@ -1,0 +1,25 @@
+{{ 'main-header.css' | asset_url| stylesheet_tag }}
+
+<div id="announcementbar" class="bg-darkgreen">
+    <span class="caption t-center t-white m-auto">{{ section.settings.announce }}</span>
+</div>
+
+{% schema %}
+{
+    "name": "Announcementbar",
+    "class": "announcement",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "announce",
+            "label": "Announcement Text"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Announcementbar",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

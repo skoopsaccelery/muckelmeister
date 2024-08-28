@@ -1,0 +1,8 @@
+{{ 'main-page.css' | asset_url| stylesheet_tag }}
+
+{% if page %}
+    <main class="container">
+        <h1 class="heading t-black">{{ page.title }}</h1>
+        <p class="bodytext t-black">{{ page.content | strip_html }}</p>
+    </main>
+{% endif %}

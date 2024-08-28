@@ -1,0 +1,128 @@
+{{ 'section-hero.css' | asset_url| stylesheet_tag }}
+{{ 'section-widgets.css' | asset_url| stylesheet_tag }}
+
+<main>
+    <div class="hero-section"
+        style="background-image: url({{ section.settings.hero_background_image | image_url }});">
+        <div class="container hero-section__container">
+            <div class="hero-section__text">
+                <h1 class="herotext t-darkgreen t-center m-b-20">{{ section.settings.hero_heading }}</h1>
+                <h2 class="bodytext t-grey t-center m-0 m-b-20">{{ section.settings.hero_subheading }}</h2>
+            </div>
+            {% assign hero_product = section.settings.hero_product %}
+            {% if hero_product != blank %}
+            <div class="hero-section__img-container">
+                <div class="mm-circle__wrapper">
+                    <svg id="mm-circle" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" width="20cm" height="20cm" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 566.93 566.93">
+                        <defs>
+                            <clipPath id="clippath">
+                            <rect y="25.83" width="566.93" height="515.27" style="fill: none; stroke-width: 0px;"/>
+                            </clipPath>
+                        </defs>
+                        <g style="clip-path: url(#clippath);">
+                            <path d="M244.19,27.15S38.49,37.49,17.66,151.18c-20.83,113.7-50.83,224.82,93.74,341.08,114.56,92.13,229.13,35.73,343.7-20.68,142.73-70.27,118.11-170.54,91.13-253.22-26.97-82.68-65.74-206.72-302.04-191.21" style="fill: #df7c7d; stroke-width: 0px;"/>
+                        </g>
+                    </svg>
+                    <span class="mm-circle__text herotext t-white">Gratis</span>
+                </div>
+                <img class="hero-section__img" src="{{ hero_product.featured_image | image_url: width: '500x500' }}" alt=""
+                    width="100%" height="auto">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-section__benefits container">
+        <h2 class="heading t-grey m-b-20">{{ section.settings.widget_title }}</h2>
+        <div class="widgets">
+            {% assign blocks = section.blocks %}
+            {% for block in blocks %}
+                <div class="widget-card dropshadow">
+                <div class="widget-card__head m-b-20">
+                    <div class="widget-card__head-left">
+                        <img src="{{ block.settings.icon.src | image_url }}" alt="{{ block.settings.icon.alt }}" width="100px" height="100px">
+                        <span class="bodytext t-black t-bold">{{ block.settings.card_heading }}</span>
+                    </div>
+                </div>
+                <div class="widget-card__caption">
+                    <span class="caption t-grey">{{ block.settings.card_text }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="widget-card__navigation">
+            {% for block in blocks %}
+                <div class="widget-card__navigation-element"></div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+<script src="{{ 'section-hero.js' | asset_url }}" defer></script>
+<script src="{{ 'section-widgets.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+"name": "Hero Section 02",
+"settings": [
+{
+"type": "text",
+"id": "hero_heading",
+"label": "Heading"
+},
+{
+"type": "text",
+"id": "hero_subheading",
+"label": "Subheading"
+},
+{
+"type": "text",
+"id": "button_text",
+"label": "Text"
+},
+{
+"type": "url",
+"id": "button_url",
+"label": "Text"
+},
+{
+"type": "product",
+"id": "hero_product",
+"label": "Select Product"
+},
+{
+"type": "image_picker",
+"id": "hero_background_image",
+"label": "Background Image"
+}
+],
+"blocks": [
+            {
+                "type": "block",
+                "name": "Benefits Card",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "icon",
+                        "label": "Choose Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "card_heading",
+                        "label": "Card Heading"
+                    },
+                    {
+                        "type": "text",
+                        "id": "card_text",
+                        "label": "Card Text"
+                    }
+                ]
+            }
+        ],
+"presets": [
+{
+"name": "Hero Section 02",
+"settings": {}
+}
+]
+}
+{% endschema %}

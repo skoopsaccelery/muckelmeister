@@ -1,0 +1,7 @@
+{{ 'main-collection.css' | asset_url| stylesheet_tag }}
+
+{% if collection and collection.description != blank %}
+    <div class="container collection-description">
+        {{ collection.description }}
+    </div>
+{% endif %}

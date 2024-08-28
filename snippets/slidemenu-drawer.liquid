@@ -1,0 +1,64 @@
+{{ 'slidemenu-drawer.css' | asset_url| stylesheet_tag }}
+
+<nav class="slidemenu-drawer hidden">
+    <div class="slidemenu-drawer__nav-wrapper">
+        <div class="slidemenu-drawer__nav">
+            <span class="heading t-black t-bold m-b-20" style="display: block;">Muckelmeister</span>
+            <div class="slidemenu-drawer__nav-block-wrapper">
+                <!-- Slidemenu Category Block - USAGE: create a new block for every new Category sort -->
+                <div class="slidemenu-drawer__nav-block">
+                    <span class="subheading t-grey m-b-20" style="display: block;">Bundles</span>
+                    {% for collection in collections %}
+                        {% if collection.metafields.custom.collection_tags == 'Bundle' %}
+                            <div class="slidemenu-drawer__nav-block-content">
+                                <a class="bodytext links t-black" href="{{ collection.url }}">{{ collection.title }}</a>
+                            </div>
+                        {% endif %} 
+                    {% endfor %}
+                </div>
+                <!-- End Slidemenu Category Block -->
+                <!-- Slidemenu Category Block - USAGE: create a new block for every new Category sort -->
+                <div class="slidemenu-drawer__nav-block">
+                    <span class="subheading t-grey m-b-20" style="display: block;">Kinderzimmer</span>
+                    {% for collection in collections %}
+                        {% if collection.metafields.custom.collection_tags contains 'Kinderzimmer' %}
+                            <div class="slidemenu-drawer__nav-block-content">
+                                <img src="{{ collection.metafields.custom.collection_icon | image_url }}" alt="{{ collection.metafields.custom.collection_icon.alt }}" width="40px" height="auto">
+                                <a class="bodytext links t-black" href="{{ collection.url }}">{{ collection.title }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Slidemenu Category Block -->
+                <!-- Slidemenu Category Block - USAGE: create a new block for every new Category sort -->
+                <div class="slidemenu-drawer__nav-block">
+                    <span class="subheading t-grey m-b-20" style="display: block;">Essen und Trinken</span>
+                    {% for collection in collections %}
+                        {% if collection.metafields.custom.collection_tags contains 'Essen' or collection.metafields.custom.collection_tags contains 'Trinken'%}
+                            <div class="slidemenu-drawer__nav-block-content">
+                                <img src="{{ collection.metafields.custom.collection_icon | image_url }}" alt="{{ collection.metafields.custom.collection_icon.alt }}" width="40px" height="auto">
+                                <a class="bodytext links t-black" href="{{ collection.url }}">{{ collection.title }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Slidemenu Category Block -->
+                <!-- Slidemenu Category Block - USAGE: create a new block for every new Category sort -->
+                <div class="slidemenu-drawer__nav-block">
+                    <span class="subheading t-grey m-b-20" style="display: block;">Anlässe</span>
+                    {% for collection in collections %}
+                        {% if collection.metafields.custom.collection_tags contains 'Anlass' %}
+                            <div class="slidemenu-drawer__nav-block-content">
+                                <img src="{{ collection.metafields.custom.collection_icon | image_url }}" alt="{{ collection.metafields.custom.collection_icon.alt }}" width="40px" height="auto">
+                                <a class="bodytext links t-black" href="{{ collection.url }}">{{ collection.title }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Slidemenu Category Block -->
+            </div>        
+        </div>
+    </div>
+</nav>
+
+<script src="{{ 'slidemenu-drawer.js' |  asset_url }}" defer></script>

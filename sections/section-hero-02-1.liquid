@@ -1,0 +1,31 @@
+{{ 'section-hero-02.css' | asset_url| stylesheet_tag }}
+
+<section class="sale-info" style="background-color: {{ section.settings.background_color }};">
+    <div class="container">
+        <span class="bodytext t-bold t-black m-0">
+            Erhalte ein personalisiertes Frühstücksbrett gratis zu deiner
+            Bestellung
+        </span>
+        <div class="sale-info__info-text caption t-grey">
+            {{ section.settings.info_text }}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Hero Section 02 Info",
+"settings": [
+{
+"type": "color",
+"id": "background_color",
+"label": "Background Image"
+},
+{
+"type": "richtext",
+"id": "info_text",
+"label": "Info Text"
+}
+]
+}
+{% endschema %}

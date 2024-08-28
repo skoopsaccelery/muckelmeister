@@ -1,0 +1,127 @@
+{{ 'slidemenu.css'| asset_url| stylesheet_tag }}
+
+<div class="slidemenu hidden opacity-hidden">
+    <nav class="slidemenu-container">
+        <div class="slidemenu-container__nav opacity-hidden">
+            <div>
+                <div class="slidemenu-container__close-wrapper">
+                    <!-- Slidemenu Back Button -->
+                    <div class="slidemenu-container__back opacity-hidden">
+                        {% render 'icon-arrow' %}
+                        <span class="caption t-grey">Zurück</span>
+                    </div>
+                    <!-- Slidemenu Close Button -->
+                    <div class="slidemenu-container__close">
+                        {% render 'icon-close' %}
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div id="nav-content" class="slidemenu-container__nav-content">
+                    <a href="/" class="links subheading t-black">Home</a>
+                    <div id="products" class="slidemenu-container__nav-element">
+                        <span class="subheading t-black">Bundles</span>
+                        {% render 'icon-arrow' %}
+                    </div>
+                    <div id="childroom" class="slidemenu-container__nav-element">
+                        <span class="subheading t-black">Kinderzimmer</span>
+                        {% render 'icon-arrow' %}
+                    </div>
+                    <div id="eatanddrink" class="slidemenu-container__nav-element">
+                        <span class="subheading t-black">Essen und Trinken</span>
+                        {% render 'icon-arrow' %}
+                    </div>
+                    <div id="occasions" class="slidemenu-container__nav-element">
+                        <span class="subheading t-black">Anlässe</span>
+                        {% render 'icon-arrow' %}
+                    </div>
+                    <a href="/collections/bestseller" class="slidemenu-container__nav-element links">
+                        <span class="subheading t-black">Bestseller</span>
+                    </a>
+                    <a href="/products" class="slidemenu-container__nav-element links">
+                        <span class="subheading t-black">Stöbern</span>
+                    </a>
+                    <a href="/collections/sale" class="slidemenu-container__nav-element links">
+                        <span class="subheading t-black"><strong class="t-bold">%</strong> Sale</span>
+
+                    </a>
+                    <a href="/pages/uber-uns" class="slidemenu-container__nav-element links">
+                        <span class="subheading t-black">Über Uns</span>
+
+                    </a>
+                    <a href="/pages/faq" class="slidemenu-container__nav-element links">
+                        <span class="subheading t-black">Hilfe</span>
+
+                    </a>
+                </div>
+                <!-- Navigation -->
+
+                <!-- Categories -->
+                <div id="productsPanel" class="slidemenu-container__nav-content content-hidden hidden">
+                    {% for collection in collections %}
+                    {% if collection.metafields.custom.collection_tags == 'Bundle' %}
+                    <a href="{{ collection.url }}" class="slidemenu-container__nav-element links">
+                        <div class="slidemenu-container__nav-element-text">
+                            <span class="bodytext t-grey">{{ collection.title }}</span>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Categories -->
+                <!-- Categories -->
+                <div id="childroomPanel" class="slidemenu-container__nav-content content-hidden hidden">
+                    {% for collection in collections %}
+                    {% if collection.metafields.custom.collection_tags contains 'Kinderzimmer' %}
+                    <a href="{{ collection.url }}" class="slidemenu-container__nav-element links">
+                        <div class="slidemenu-container__nav-element-text">
+                            <img src="{{ collection.metafields.custom.collection_icon | image_url: width: '100x100' }}"
+                                alt="{{ collection.metafields.custom.collection_icon.alt }}" width="30px" height="auto">
+                            <span class="bodytext t-grey">{{ collection.title }}</span>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Categories -->
+                <!-- Categories -->
+                <div id="eatanddrinkPanel" class="slidemenu-container__nav-content content-hidden hidden">
+                    {% for collection in collections %}
+                    {% if collection.metafields.custom.collection_tags contains 'Essen' or
+                    collection.metafields.custom.collection_tags contains 'Trinken' %}
+                    <a href="{{ collection.url }}" class="slidemenu-container__nav-element links">
+                        <div class="slidemenu-container__nav-element-text">
+                            <img src="{{ collection.metafields.custom.collection_icon | image_url: width: '100x100' }}"
+                                alt="{{ collection.metafields.custom.collection_icon.alt }}" width="30px" height="auto">
+                            <span class="bodytext t-grey">{{ collection.title }}</span>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Categories -->
+                <!-- Categories -->
+                <div id="occasionsPanel" class="slidemenu-container__nav-content content-hidden hidden">
+                    {% for collection in collections %}
+                    {% if collection.metafields.custom.collection_tags contains 'Anlass' %}
+                    <a href="{{ collection.url }}" class="slidemenu-container__nav-element links">
+                        <div class="slidemenu-container__nav-element-text">
+                            <img src="{{ collection.metafields.custom.collection_icon | image_url: width: '100x100' }}"
+                                alt="{{ collection.metafields.custom.collection_icon.alt }}" width="30px" height="auto">
+                            <span class="bodytext t-grey">{{ collection.title }}</span>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Categories -->
+            </div>
+
+            <div class="slidemenu-container__nav-socials">
+                <span class="overline t-black">Folge Uns</span>
+                {% render 'icon-socials' %}
+            </div>
+        </div>
+    </nav>
+</div>
+<script src="{{ 'slidemenu.js'| asset_url }}" defer></script>

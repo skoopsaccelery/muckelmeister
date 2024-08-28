@@ -1,0 +1,49 @@
+{% for option in product.options_with_values %}
+<fieldset>
+    <legend class="bodytext m-0">{{ option.name }}</legend>
+    <div class="product-form__variants">
+        {% for value in option.values %}
+        <input class="radio" value="{{ value | escape }}" type="radio" name="{{ option.name | handleize }}"
+            id="{{ value.id }}" 
+            data-variant-id="{{ value.variant.id }}"
+            data-variant-sku="{{ value.variant.sku }}">
+        <label style="background-image: url({{ value.variant.featured_image | image_url }});"
+            class="overline t-white t-bold radio-label" for="{{ value.id }}">
+            <span class="radio-label__value">{{ value }}</span>
+            <div class="radio-label__overlay {% if forloop.first %} unchecked {% endif %}"></div>
+        </label>
+        {% endfor %}
+    </div>
+</fieldset>
+{% endfor %}
+
+<script>
+    let allFieldsets = document.querySelectorAll('fieldset');
+    allFieldsets.forEach(fieldset => {
+        let optionsContainer = fieldset.querySelector('.product-form__variants');
+
+        //Set First Variant selected
+        let firstVariant = optionsContainer.children[0];
+        firstVariant.checked = true;
+
+        fieldset.addEventListener('change', () => {
+            let options = optionsContainer.querySelectorAll('.radio');
+
+            options.forEach(option => {
+                let variantStorage = document.querySelector('#variant-storage');
+                let variants = {{ product.variants | json }}
+
+                if (option.checked === true) {
+                    let selectedVariantsId = option.getAttribute('data-variant-id');
+                    let selectedVariantsSku = option.getAttribute('data-variant-sku');
+
+                    let selectedVariant = variants.find(variant => variant.title === option.value);
+                    variantStorage.value = selectedVariant.id;
+
+                    variationChange(selectedVariantsSku);
+                    scrollOnVariantChange();
+                }
+            })
+        })
+    });
+</script>

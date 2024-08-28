@@ -1,0 +1,122 @@
+.collection-banner {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.collection-banner__text-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.collection-banner__text {
+    position: absolute;
+    bottom: 60px;
+    left: 12px;
+}
+
+.collection-products {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.collection-products__card {
+    display: block;
+    flex: 0 1 calc(50% - 10px);
+}
+
+.collection-products__card-img-wrapper {
+    position: relative;
+}
+
+.collection-products__card-img {
+    display: block;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.product-card-rating {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    list-style-type: none;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.product-card-rating-element {
+    width: 15px;
+}
+
+.collection-products__card-title {
+    display: block;
+    margin: 0 0 10px;
+}
+
+.collection-products_card-variants {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.collection-products_card-variants-img {
+    border-radius: 50%;
+    outline: 1px solid #307961;
+}
+
+.collection-products__card-prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collection-products__card-discountbadge {
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.collection-description {
+    font-family: 'Nunito Regular', sans-serif;
+}
+
+.collection-products__all {
+    display: block;
+    margin: 20px auto;
+    width: 40%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 400px) {
+    .collection-banner {
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .collection-banner {
+        width: 100%;
+        height: 500px;
+    }
+    .collection-products {
+        justify-content: flex-start;
+    }
+
+    .collection-products__card {
+        flex: 0 1 calc(25% - 10px);
+    }
+
+    .collection-products__all {
+        width: 20%;
+    }
+}

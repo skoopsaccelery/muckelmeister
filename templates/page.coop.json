@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "typeform_6PVQF8": {
+      "type": "typeform",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "typeform_6PVQF8"
+  ]
+}

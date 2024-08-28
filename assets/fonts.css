@@ -1,0 +1,51 @@
+/* Quicksand Font */
+@font-face {
+    font-family: "Quicksand Regular";
+    src: url(../assets/Quicksand-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Quicksand Medium";
+    src: url(../assets/Quicksand-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Quicksand SemiBold";
+    src: url(../assets/Quicksand-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Quicksand Bold";
+    src: url(../assets/Quicksand-Bold.ttf);
+}
+
+/* Nunito Font */
+@font-face {
+    font-family: "Nunito Regular";
+    src: url(../assets/Nunito-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Nunito Medium';
+    src: url(../assets/Nunito-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Nunito Bold';
+    src: url(../assets/Nunito-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Nunito SemiBold';
+    src: url(../assets/Nunito-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Nunito Black';
+    src: url(../assets/Nunito-Black.ttf);
+}
+
+@font-face {
+    font-family: 'Bhatoshine Regular';
+    src: url(../assets/Bhatoshine-Regular.ttf);
+}

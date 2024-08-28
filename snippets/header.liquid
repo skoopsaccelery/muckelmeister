@@ -1,0 +1,29 @@
+{{ 'main-header.css' | asset_url| stylesheet_tag }}
+
+<div class="header-wrapper bg-pastelgreen">
+    <header class="header p-12">
+        <a href="/">
+            <img class="header-logo" src="{{ settings.logo.src | image_url }}" alt="{{ settings.logo.alt }}" width="150px" height="auto">
+        </a>
+        <nav class="header-nav__desktop">
+            <span class="bodytext t-black" id="slidemenu-toggle">Produkte</span>
+            <a class="bodytext links t-black" href="/products">Stöbern</a>
+            <a class="bodytext links t-black" href="/collections/bestseller">Bestseller</a>
+            <a class="bodytext links t-black" href="/collections/sale"><strong class="t-bold">%</strong>Sale</a>
+            <a class="bodytext links t-black" href="/pages/uber-uns">Über Uns</a>
+            <a class="bodytext links t-black" href="/pages/faq">Hilfe</a>
+        </nav>
+        <div class="header-icons">
+            <div class="header-icons__element">{% render 'icon-search' %}</div>
+            <div class="header-icons__element">
+                {% render 'icon-cart' %}
+                {% if cart.item_count < 0 %}
+                    <div class="header-icons__cart-items overline t-white">
+                        <span class="header-icons__cart-items__count">{{ cart.item_count }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="header-icons__element">{% render 'icon-hamburger' %}</div>
+        </div>
+    </header>
+</div>

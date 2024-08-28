@@ -1,0 +1,71 @@
+{{ 'main-collection.css' | asset_url| stylesheet_tag }}
+
+<div class="bg-orange">
+    <div class="container">
+        {% assign selected_collection = section.settings.collection %}
+        <h2 class="heading t-black m-0">{{ selected_collection.title }}</h2>
+        <span class="subheading t-grey m-b-20" style="display: block;">{{
+            selected_collection.metafields.custom.collection_subline }}</span>
+        <div class="collection-products">
+            {% for product in selected_collection.products limit: 4 %}
+                {% render 'product-card', product: product %}
+            {% endfor %}
+        </div>
+        {% if selected_collection.products.size > 4 %}
+        <a href="{{ selected_collection.url }}"
+            class="collection-products__all links caption bg-pastelgreen t-black t-center">Alle Produkte anzeigen</a>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").ready(() => {
+            let productRatings = document.querySelectorAll('.product-card-rating');
+
+            productRatings.forEach(cardRating => {
+                let cardRatingCount = cardRating.children[5].outerText;
+
+                if (cardRatingCount === '(0)' || cardRatingCount === '(undefined)') {
+                    cardRating.style.display = 'none'
+                }
+            });
+        });
+
+        // Hide NewBadge after 14 days
+        let productElements = document.querySelectorAll('.product-badges');
+
+        productElements.forEach((element) => {
+            let publishDateString = element.getAttribute('data-product-publish-date');
+            let publishDate = new Date(publishDateString);
+            let currentDate = new Date();
+            let timeDifference = currentDate - publishDate
+            let daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+            let newBadge = element.querySelector('.new');
+            if (daysDifference < 14) {
+                newBadge.classList.remove('hidden')
+            }
+        })
+    })
+</script>
+
+{% schema %}
+{
+"name": "Featured Collection",
+"class": "featured-collection",
+"settings": [
+{
+"type": "collection",
+"id": "collection",
+"label": "Choose Collection"
+}
+],
+"presets": [
+{
+"name": "Featured Collection",
+"settings": {}
+}
+]
+}
+{% endschema %}

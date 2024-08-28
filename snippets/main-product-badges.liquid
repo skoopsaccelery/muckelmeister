@@ -1,0 +1,65 @@
+<style>
+    .product-badges {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .product-badges__badge {
+        background-color: #121212;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .sale {
+        background-color: #D0E5DE;
+    }
+
+    .new {
+        background-color: #f8ddc3;
+    }
+
+    .sold-out {
+        background-color: #222222;
+    }
+</style>
+
+{% if product %}
+<div class="product-badges" data-product-publish-date="{{ product.published_at }}">
+    {% if product.compare_at_price %}
+    <div class="product-badges__badge caption t-grey sale">
+        SALE
+    </div>
+    {% endif %}
+    <div class="product-badges__badge caption t-black new hidden">
+        NEU
+    </div>
+    {% if product.available == false %}
+    <div class="product-badges__badge caption t-white sold-out">
+        Ausverkauft
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+{% if result %}
+<div class="product-badges" data-product-publish-date="{{ product.published_at }}">
+    {% if result.compare_at_price %}
+    <div class="product-badges__badge caption t-grey sale">
+        SALE
+    </div>
+    {% endif %}
+    <div class="product-badges__badge caption t-black new hidden">
+        NEU
+    </div>
+    {% if result.available == false %}
+    <div class="product-badges__badge caption t-white sold-out">
+        Ausverkauft
+    </div>
+    {% endif %}
+</div>
+{% endif %}

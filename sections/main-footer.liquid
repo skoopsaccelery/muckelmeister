@@ -1,0 +1,40 @@
+{{ 'main-footer.css' | asset_url| stylesheet_tag }}
+
+<footer>
+    <div class="footer-topcategories__wrapper">
+        <div class="footer-topcategories container">
+            <h3 class="heading t-black m-b-20">Top Kategorien</h3>
+            <div class="footer-topcategories__linkbox">
+                {% for collection in collections %}
+                    {% if collection.metafields.custom.top_category == true and collection.metafields.custom.collection_tags != 'Bundle' %}
+                        <a class="footer-topcategories__link links" href="{{ collection.url }}">
+                            <img src="{{ collection.metafields.custom.collection_icon | image_url }}" alt="{{ collection.metafields.custom.collection_icon.alt }}" width="30px" height="auto">
+                            <span class="caption t-black">{{ collection.title }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="footer-information__wrapper">
+        <div class="footer-information container">
+            <span class="heading m-b-20">Muckelmeister</span>
+            <div class="footer-information__links">
+                {% for page in pages %}
+                  {% unless page.title == 'collection-data' %}
+                    <a class="bodytext links t-black" href="{{ page.url }}">{{ page.title }}</a>
+                  {% endunless %}
+                {% endfor %}
+                {% for policy in shop.policies %}
+                    <a class="bodytext links t-black" href="{{ policy.url }}">{{ policy.title }}</a>
+                {% endfor %}
+            </div>
+            <div class="footer-information__socials">
+                <span class="footer-information__socials-title subheading t-black">Folge Uns</span>
+                {% render 'icon-socials' %}
+                <span class="bodytext t-grey t-center">Wir akzeptieren</span>
+                {% render 'icon-payments' %}
+            </div>
+        </div>
+    </div>
+</footer>

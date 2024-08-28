@@ -1,0 +1,114 @@
+{{ 'main-collection.css' | asset_url| stylesheet_tag}}
+
+{% assign results = search.results %}
+
+<div class="container">
+    <!-- Searchhead -->
+    <div class="search-head" style="margin: 0 0 20px;">
+        <h1 class="heading m-0">{{ search.results_count }} Treffer für:</h1>
+        <h2 class="subheading t-grey m-0">"{{ search.terms }}"</h2>
+    </div>
+    <!-- End Searchhead -->
+    <div class="collection-products">
+        {% for result in results %}
+        <a class="collection-products__card links" href="{{ result.url }}">
+            <div class="collection-products__card-img-wrapper">
+                {% render 'main-product-badges', result: result %}
+                <img class="collection-products__card-img m-b-20"
+                    src="{{ result.featured_image.src | image_url: width: '300x300' }}" alt="{{ result.image.alt }}"
+                    width="100%" height="auto" loading="lazy">
+                <ul class="rating-{{ result.id }} product-card-rating m-0">
+                    <!-- <li class="product-rating-element">{% render 'icon-rating' %}</li> -->
+                    <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+                    <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+                    <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+                    <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+                    <li class="product-card-rating-element">{% render 'icon-rating-empty' %}</li>
+                    <li class="product-card-rating-element product-rating-label overline t-black">(0)</li>
+                </ul>
+        
+                <script>
+                    $("#judgeme-{{ result.id }} > .jdgm-widget > .jdgm-prev-badge").ready(() => {
+        
+                        $("#judgeme-{{ result.id }} > .jdgm-widget > .jdgm-prev-badge").css("display", "none !important");
+                        //get data-average-rating
+                        var rating = $("#judgeme-{{ result.id }} > .jdgm-widget > .jdgm-prev-badge").attr("data-average-rating");
+                        var count = $("#judgeme-{{ result.id }} > .jdgm-widget > .jdgm-prev-badge").attr("data-number-of-reviews");
+        
+                        rating = parseInt(rating);
+        
+                        if (rating > 0) console.log(rating)
+                        //fill stars
+                        for (let i = 0; i < rating; i++) {
+                            $(".rating-{{ result.id }} > .product-card-rating-element").eq(i).html(`{% render 'icon-rating' %}`);
+                        }
+        
+                        $(".rating-{{ result.id }} > .product-rating-label").html("(" + count + ")");
+        
+                    });
+                </script>
+                <div style="display:none" id="judgeme-{{ result.id }}">
+                    <div class='jdgm-widget jdgm-preview-badge'>
+                        {{ result.metafields.judgeme.badge }}
+                    </div>
+                </div>
+            </div>
+            <span class="collection-products__card-title caption t-black t-bold">{{ result.title }}</span>
+            {% if result.variants.size > 1 %}
+            <div class="collection-products_card-variants m-b-20">
+                {% for variant in result.variants %}
+                <img class="collection-products_card-variants-img" src="{{ variant.image.src |  image_url: width: '10x10' }}"
+                    alt="{{ variant.image.alt }}" width="10px" height="auto" loading="lazy">
+                {% endfor %}
+                <span class="overline t-black">({{ result.variants.size }} Varianten)</span>
+            </div>
+            {% endif %}
+            <div class="collection-products__card-prices">
+                {% if result.compare_at_price %}
+                <div>
+                    <span class="overline t-black t-linethrough">{{ result.compare_at_price | money}}</span>
+                    <span class="caption t-black t-bold">{{ result.price | money }}</span>
+                </div>
+                <span class="collection-products__card-discountbadge overline bg-darkgreen t-white">18% gespart</span>
+                {% else %}
+                <span class="caption t-black t-bold">{{ result.price | money}}</span>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //Hide Rating if Rating is 0 or undefined
+        $("#judgeme-{{ product.id }} > .jdgm-widget > .jdgm-prev-badge").ready(() => {
+        let productRatings = document.querySelectorAll('.product-card-rating');
+            console.log(productRatings)
+
+            productRatings.forEach(cardRating => {
+                let cardRatingCount = cardRating.children[5].outerText;
+
+                if (cardRatingCount === '(0)' || cardRatingCount === '(undefined)'){
+                    cardRating.style.display = 'none'
+                }
+            });
+        });
+
+        // Hide NewBadge after 14 days
+        let productElements = document.querySelectorAll('.product-badges');
+
+        productElements.forEach((element) => {
+            let publishDateString = element.getAttribute('data-product-publish-date');
+            let publishDate = new Date(publishDateString);
+            let currentDate = new Date();
+            let timeDifference = currentDate - publishDate
+            let daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+            let newBadge = element.querySelector('.new');
+            if (daysDifference < 14) {
+                newBadge.classList.remove('hidden')
+            }
+        })
+    })
+</script>

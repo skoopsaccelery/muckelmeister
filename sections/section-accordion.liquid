@@ -1,0 +1,56 @@
+{{ 'section-accordion.css' | asset_url | stylesheet_tag }}
+
+<div class="accordion-container">
+  <h2 class="heading margin-twenty">{{ section.settings.accordion_block_title }}</h2>
+  {% assign blocks = section.blocks %}
+  {% for block in blocks %}
+  <div class="accordion-block-wrapper">
+    <div class="accordion-block">
+      <span class="bodytext">{{ block.settings.accordion_element_title }}</span>
+      <div class="accordion-icon">{% render 'icon-arrow' %}</div>
+    </div>
+    <div class="bodytext hidden pointer">
+      <p>{{ block.settings.accordion_element_richtext }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<script src="{{ 'section-accordion.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Accordion",
+  "class": "accordion-section",
+  "settings": [
+      {
+      "type": "text",
+      "id": "accordion_block_title",
+      "label": "Block Titel"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Accordion Block",
+      "settings": [
+    {
+      "type": "text",
+      "id": "accordion_element_title",
+      "label": "Element Titel"
+    },
+    {
+      "type": "richtext",
+      "id": "accordion_element_richtext",
+      "label": "Element Text"
+    }
+  ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

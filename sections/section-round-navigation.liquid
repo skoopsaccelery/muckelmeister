@@ -1,0 +1,16 @@
+{{ 'section-round-navigation.css' | asset_url| stylesheet_tag }}
+
+<nav class="container round-navigation">
+    {% for collection in collections %}
+        {% unless collection.metafields.custom.collection_tags contains 'Anlass' or collection.metafields.custom.collection_tags contains 'Sale' or collection.metafields.custom.collection_tags contains 'Bundle' or collection.metafields.custom.collection_tags contains 'Bestseller' %}
+            <a href="{{ collection.url }}" class="round-navigation__element links">
+                    <div class="round-navigation__element-img" {% if collection.metafields.custom.category_round_nav_img != blank %}
+                        style="background-image: url({{ collection.metafields.custom.category_round_nav_img | image_url: width: '250x250' }});"
+                        {% else %}
+                        style="background-image: url({{ collection.image | image_url: width: '250x250' }});"
+                    {% endif %}></div>
+                    <span class="overline t-black t-center">{{ collection.metafields.custom.collection_short_title }}</span>
+            </a>
+        {% endunless %}
+    {% endfor %}
+</nav>

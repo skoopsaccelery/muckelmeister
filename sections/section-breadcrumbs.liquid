@@ -1,0 +1,55 @@
+<style>
+    .breadcrumbs {
+    max-width: 1200px;
+    margin: auto;
+}
+.breadcrumbs > ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.breadcrumbs > ul > li > a,
+.breadcrumbs > ul > span {
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    color: #727271;
+    font-size: 6px;
+}
+
+.breadcrumbs > ul > li > a:hover {
+    text-decoration: underline;
+}
+</style>
+
+{% unless template == 'index' or template == 'cart' %}
+  <nav role="navigation" aria-label="breadcrumbs" class="breadcrumbs">
+    <ul>
+      <li><a href="{{ shop.url }}">Home</a></li>
+      {% if collection %}
+        <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% endif %}
+      {% if blog %}
+        <li class="bold"><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+      {% endif %}
+      {% if page %}
+        <li class="bold"><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endif %}
+      {% if shop.policies %}
+        <li class="bold"><a href="{{ shop.policies.url }}">{{ shop.policies.title }}</a></li>
+      {% endif %}
+      {% if product %}
+        {% for collection in product.collections %}
+          {% unless collection.metafields.custom.collection_tags contains 'anlass' or collection.title == 'Bestseller'%}
+          <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+          <li class="bold"><a href="{{ product.url }}">{{ product.title }}</a></li>
+        {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </nav>
+{% endunless %}

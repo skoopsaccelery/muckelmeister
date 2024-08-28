@@ -1,0 +1,20 @@
+{{ 'main-collection-list.css' | asset_url| stylesheet_tag }}
+
+
+<div class="container">
+    <h1 class="heading t-black">Unsere Produkte</h1>
+    <div class="collection-list">
+        {% for collection in collections %}
+            {% unless collection.metafields.custom.collection_tags == 'Bundle' %}
+            <a class="collection-list__card bodytext links t-black" href="{{ collection.url }}">
+                <div class="collection-list__card-img" style="background-image: url({{ collection.image | image_url }});">
+                </div>
+                <div class="collection-list__card-text m-20">
+                    <span class="caption t-black t-bold">{{ collection.title }}</span>
+                    <span class="overline t-grey">{{ collection.metafields.custom.collection_subline }}</span>
+                </div>
+            </a>
+        {% endunless %}
+        {% endfor %}
+    </div>
+</div>

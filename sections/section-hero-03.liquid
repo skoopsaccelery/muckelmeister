@@ -1,0 +1,34 @@
+{{ 'section-hero.css' | asset_url| stylesheet_tag }}
+
+<main>
+    <img class="hero-section__img" src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt }}" width="100%" height="auto">
+    <div class="container bg-darkgreen hero-section__container">
+        <h1 class="herotext m-0 t-white">Gratis Messlatte</h1>
+        <h2 class="subheading m-0 t-white t-light">Erhalte eine Gratis Messlatte zu jeder Bestellung</h2>
+        <a href="{{ section.settings.button_url }}" class="hero-section__cta links bodytext t-bold cta-btn t-black t-center bg-white">
+            Zu den Messlatten
+        </a>
+    </div>
+</main>
+
+<script src="{{ 'section-hero.js' | asset_url }}" defer></script>
+<script src="{{ 'section-widgets.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+    "name": "Hero Section 03",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Hero Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Section 03",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

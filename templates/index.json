@@ -1,0 +1,156 @@
+{
+  "sections": {
+    "section_hero_03_7iarL9": {
+      "type": "section-hero-03",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Geschenkfreude_Tonie-Regal_Lowe_Krone_06.jpg"
+      }
+    },
+    "section_hero_01_NepeHH": {
+      "type": "section-hero-01",
+      "settings": {
+        "hero_heading": "Gratis Frühstücksbrettchen",
+        "hero_subheading": "Kinderbesteck + Gratis Brettchen: Freude beim Frühstück! 🌟🍴",
+        "button_text": "Zu den Kinderbestecken",
+        "button_url": "shopify:\/\/collections\/kinderbesteck-mit-gravur",
+        "hero_product": "kuppels-kinderbesteck-mit-gravur-waldtiere",
+        "hero_background_image": "shopify:\/\/shop_images\/HeaderBild_Startseite_MM_1.jpg"
+      }
+    },
+    "section_benefits_DW8fcY": {
+      "type": "section-benefits",
+      "blocks": {
+        "benefit_top_ayAckT": {
+          "type": "benefit_top",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Benefits_Vorlage_Mit_Herz.svg",
+            "heading": "Mit Herz dabei",
+            "description": "Wir geben unser Bestes, um jede Bestellung zu Deiner vollsten Zufriedenheit auszuführen"
+          }
+        },
+        "benefit_top_6RNW6C": {
+          "type": "benefit_top",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Benefits_Handarbeit_Vector.svg",
+            "heading": "Handveredelt",
+            "description": "Unsere Produkte werden mit Sorgfalt handveredelt, um höchste Qualität und Zufriedenheit zu gewährleisten"
+          }
+        },
+        "benefit_bottom_qw83Be": {
+          "type": "benefit_bottom",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Benefits_Vorlage_Nachhaltig.svg",
+            "heading": "Nachhaltig",
+            "description": "Mit größter Sorgfalt achten wir auf Nachhaltigkeit, um unseren ökologischen Fußabdruck zu minimieren und die Umwelt zu schützen"
+          }
+        },
+        "benefit_bottom_LhaNnc": {
+          "type": "benefit_bottom",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Benefits_Vorlage_schnelle_Lieferung.svg",
+            "heading": "Schnelle Lieferung",
+            "description": "In der Regel erreichen unsere Produkte Dich innerhalb von 2-3 Tagen, sodass Du nicht lange auf Deine personalisierten Geschenke warten musst."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_top_ayAckT",
+        "benefit_top_6RNW6C",
+        "benefit_bottom_qw83Be",
+        "benefit_bottom_LhaNnc"
+      ],
+      "settings": {
+        "section_heading": "Wir versprechen",
+        "section_subheading": "Mit Herz, Sorgfalt und Nachhaltigkeit für unvergessliche, personalisierte Geschenke, die Dein Herz berühren",
+        "section_image": "shopify:\/\/shop_images\/Unbenannt-1_121927e2-8a68-4ebb-af6a-c7f26bf12a40.png"
+      }
+    },
+    "bubblenav": {
+      "type": "section-round-navigation",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "featured_collection03": {
+      "type": "section-featured-collection",
+      "settings": {
+        "collection": "messlatte-kinder-holz"
+      }
+    },
+    "featured_collection01": {
+      "type": "section-featured-collection",
+      "settings": {
+        "collection": "erinnerungsbox-baby"
+      }
+    },
+    "featured_collection02": {
+      "type": "section-featured-collection",
+      "settings": {
+        "collection": "spardose-personalisiert"
+      }
+    },
+    "ratings": {
+      "type": "section-ratings-widget",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_DabQiF": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        },
+        "widget_card_PTrCph": {
+          "type": "widget_card",
+          "settings": {
+            "customer_name": "Tatjana Kail",
+            "review_date": "vor 1 Tag",
+            "review_text": "Einfach total schön gemacgt Alles war ordentlich und sauber verarbeitet. Sind total begeister",
+            "product": "kinder-messlatte-tiermotive"
+          }
+        },
+        "widget_card_9C6wPP": {
+          "type": "widget_card",
+          "settings": {
+            "customer_name": "Leyla Demor",
+            "review_date": "vor 2 Tagen",
+            "review_text": "Super Qualität und schnelle Lieferung.",
+            "product": "spardose-personalisiert-reh"
+          }
+        },
+        "widget_card_abqRmB": {
+          "type": "widget_card",
+          "settings": {
+            "customer_name": "Maria Kerst",
+            "review_date": "vor 4 Tagen",
+            "review_text": "Alles top ausser das ich erwartet habe das die Box größer wäre",
+            "product": "erinnerungskiste-baby-reh"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_DabQiF",
+        "widget_card_PTrCph",
+        "widget_card_9C6wPP",
+        "widget_card_abqRmB"
+      ],
+      "settings": {
+      }
+    },
+    "newsletter": {
+      "type": "section-newsletter",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "section_hero_03_7iarL9",
+    "section_hero_01_NepeHH",
+    "section_benefits_DW8fcY",
+    "bubblenav",
+    "featured_collection03",
+    "featured_collection01",
+    "featured_collection02",
+    "ratings",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,178 @@
+{% if product %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "id": "{{ shop.url }}{{ product.url }}",
+            "@type": "Product",
+            "brand": {
+                "@type": "brand",
+                "name": "{{ shop.name }}"
+            },
+            "productID": "{{ product.sku }}",
+            "sku": "{{ product.sku }}",
+            "mpn": "",
+            "gtin": "",
+            "description": {{ product.description | strip_html | json }},
+            "url": "{{ shop.url }}{{ product.url | strip_html }}",
+            "name": "{{ product.title }}",
+            "image": "{{ product.featured_image.src | image_url }}",
+            "itemCondition": "new",
+            "offers":
+                [
+                    {% if product.variants.size > 0 %}{% for variant in product.variants %}{
+                    "@type": "Offer",
+                    "@id": "{{ shop.url }}{{ variant.url }}",
+                    "name": "{{ product.title }} {{ variant.title }}",
+                    "price": "{{ variant.price | divided_by: 100.0 }}",
+                    "priceCurrency": "{{ shop.currency }}",
+                    "priceValidUntil": "2024-12-31",
+                    "url": "{{ shop.url }}{{ variant.url }}",
+                    "image": "{{ variant.image.src |  image_url }}",
+                    "sku": "{{ variant.sku }}",
+                    "mpn": "{{ variant.sku }}",
+                    "availability": "https://schema.org/InStock",
+                    "gtin": "",
+                    "seller": {
+                        "@type": "Organization",
+                        "name": "{{ shop.name }}"
+                    }
+                }
+            {% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
+        }
+    </script>
+    
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": 
+            [
+                {
+                    "@type": "ListItem",
+                    "position": "1",
+                    "item": {
+                        "@type": "Website",
+                        "@id": "{{ shop.url }}",
+                        "name": "{{ shop.name }}"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": "2",
+                    "item": {
+                        "@type": "Website",
+                        {% for collection in product.collections | limit: 1 %}"@id": "{{ shop.url }}{{ collection.url }}",{% endfor %}
+                        {% for collection in product.collections | limit: 1 %}"name": "{{ collection.title }}"{% endfor %}
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": "3",
+                    "item": {
+                        "@type": "Website",
+                        "@id": "{{ shop.url }}{{ product.url | strip_html }}",
+                        "name": "{{ product.title }}"
+                    }
+                }
+            ]
+        }
+    </script>
+    {% endif %}
+    {% if collection %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "{{ shop.url }}#org",
+            "url": "{{ collection.url }}",
+            "description": "{{ collection.description | strip_html }}",
+            "image": "{{ collection.image | image_url }}",
+            "mainEntityofPage":
+            {
+                "@type": "CollectionPage",
+                "@id": "{{ collection.url }}"
+            },
+            "hasPart": [
+                {% for product in collection.products %}{
+                    "@type": "WebPage",
+                    "position": "{{ product[index] }}",
+                    "url": "{{ shop.url }}{{ product.url }}"
+                }{% unless forloop.last %},{% endunless %}{% endfor %}
+            ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": 
+            [
+                {
+                    "@type": "ListItem",
+                    "position": "1",
+                    "item": {
+                        "@type": "Website",
+                        "@id": "{{ shop.url }}",
+                        "name": "{{ shop.name }}"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": "2",
+                    "item": {
+                        "@type": "Website",
+                        "@id": "{{ shop.url }}{{ collection.url }}",
+                        "name": "{{ collection.title }}"
+                    }
+                }
+            ]
+        }
+    </script>
+    {% endif %}
+    {% if template == 'index' %}
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "{{ shop.title }}",
+                "@id": "{{ shop.url }}#website",
+                "url": "{{ shop.url }}",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "{{ shop.url }}/search?q={query}"
+                    },
+                    "query-input": "required name=query"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "name": "{{ shop.name }}",
+            "@id": "{{ shop.url }}#org",
+            "url": "{{ shop.url }}",
+            "description": "{{ shop.description }}",
+            "logo": "{{ settings.logo | image_url }}",
+            "image": "{{ settings.logo | image_url }}",
+            "sameAs": 
+                [
+                {% if settings.social_facebook_link != blank %}"{{ settings.social_facebook }}",{% endif %}
+                {% if settings.social_instagram_link != blank %}"{{ settings.social_instagram }}",{% endif %}
+                {% if settings.social_youtube_link != blank %}"{{ settings.social_youtube }}"{% endif %}
+                ],
+            "address": 
+            {
+                "@type": "PostalAddress",
+                "streetAddress": "{{ shop.address1 }}",
+                "addressLocality": "{{ shop.address.city }}",
+                "postalCode": "{{ shop.province_code }}",
+                "addressCountry": "{{ shop.adress.country_code }}"
+            },
+            "telephone": "{{ shop.phone }}",
+            "priceRange": ""
+          }
+        </script>
+    {% endif %}

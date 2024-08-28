@@ -1,0 +1,136 @@
+.widgets {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 12px;
+}
+
+.widgets::-webkit-scrollbar {
+    display: none;
+}
+
+.widget-rating__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.widget-rating__list-element {
+    width: 15px;
+}
+
+.widget-rating__list-element-text {
+    margin: 0 0 0 10px;
+}
+
+.widget-card {
+    min-width: 100%;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    padding: 12px;
+    border-radius: 10px;
+    scroll-snap-align: center;
+    margin: 20px;   
+}
+
+.widget-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.widget-card__head-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.widget-card__head-left > img {
+    border-radius: 8px;
+}
+
+.widget-card__head-verified {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.widget-card__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.widget-card__list-element {
+    width: 20px;
+    height: auto;
+}
+
+.widget-card__rated-product {
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.widget-card__rated-product__img {
+    display: block;
+    border-radius: 5px;
+}
+
+.widget-card__rated-product__infos > span {
+    display: block;
+}
+
+.widget-card__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.widget-card__navigation-element {
+    display: block;
+    width: 33%;
+    height: 2px;
+    border-radius: 2px;
+    outline: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.widget-card__navigation-element__active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flex-column {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+    .widgets {
+        overflow: initial;
+    }
+
+    .widget-card {
+        min-width: calc(33% - 10px);
+        margin: 0;
+    }
+
+    .widget-card__navigation {
+        display: none;
+    }
+}

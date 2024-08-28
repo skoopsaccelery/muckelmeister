@@ -1,0 +1,76 @@
+{{ 'section-about.css' | asset_url| stylesheet_tag }}
+
+<main class="about-section">
+    {% assign blocks = section.blocks %}
+    {% for block in blocks %}
+    <div class="about-section__container">
+        <img 
+        src="{{ block.settings.image.src | image_url: width: '400x400' }}" 
+        alt="{{ block.settings.image.alt }}" 
+        class="about-section__container-img"
+        width="100%"
+        height="auto"
+        loading="lazy">
+        <h2 class="heading m-0 t-center">{{ block.settings.heading }}</h2>
+        <h3 class="subheading m-0 t-grey t-center">{{ block.settings.subheading }}</h3>
+        <p class="bodytext t-center about-text">{{ block.settings.text }}</p>
+        {% assign selectedCollection = block.settings.collection %}
+        {% if selectedCollection %}
+        <a href="{{ selectedCollection.url }}" class="about-section__container-product links t-grey">
+            <div class="about-section__container-product__img" style="background-image: url({{ selectedCollection.image.src | image_url: width: '200x200' }});"></div>
+            <div class="about-section__container-product__text">
+                <span class="bodytext">Lieblingsprodukt:</span>
+                <h3 class="subheading">{{ selectedCollection.title }}</h3>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</main>
+
+{% schema %}
+{
+    "name": "About Section",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Employees Block",
+            "limit": 3,
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+                },
+                {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading"
+                },
+                {
+                "type": "text",
+                "id": "subheading",
+                "label": "Subheading"
+                },
+                {
+                "type": "text",
+                "id": "text",
+                "label": "Text"
+                },
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "About Section",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

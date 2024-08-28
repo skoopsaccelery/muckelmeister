@@ -1,0 +1,248 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "about_section_j3e8QE": {
+      "type": "section-about",
+      "blocks": {
+        "text_Q7ajPF": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Christoph.jpg",
+            "heading": "Christoph Söhnlein",
+            "subheading": "Geschäftführer & Founder",
+            "text": "Christoph stellt  sicher, dass Qualität und Kundenzufriedenheit bei Muckelmeister immer oberste  Priorität haben.",
+            "collection": "erinnerungsbox-baby"
+          }
+        },
+        "text_FDBkti": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Reimers.jpg",
+            "heading": "Christoph Reimers",
+            "subheading": "Geschäftsführer & Founder",
+            "text": "Christoph nutzt seine  strategische Begabung, um Verbindungen zu erkennen und Möglichkeiten zu  nutzen. In seiner Freizeit fordert er sich selbst gerne beim Golfen und  Tennis.",
+            "collection": "messlatte-kinder-holz"
+          }
+        },
+        "text_GfxCEw": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Christopher.jpg",
+            "heading": "Christopher Schulz",
+            "subheading": "Technische Leitung & Founder",
+            "text": "Christopher setzt als  Software-Architekt bei Muckelmeister auf effiziente Prozessgestaltung und die  Sicherheit der Zahlungssysteme.",
+            "collection": "fruehstuecksbrettchen-personalisiert"
+          }
+        }
+      },
+      "block_order": [
+        "text_Q7ajPF",
+        "text_FDBkti",
+        "text_GfxCEw"
+      ],
+      "settings": {
+      }
+    },
+    "about_section_JRazcL": {
+      "type": "section-about",
+      "blocks": {
+        "text_9DiaeG": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Christian.jpg",
+            "heading": "Christian Voß",
+            "subheading": "Projektmanager",
+            "text": "Christian sorgt als  Projektmanager dafür, dass Projekte sowohl frist- als auch budgetgerecht  abgewickelt werden.",
+            "collection": "spardose-personalisiert"
+          }
+        },
+        "text_CH3hnp": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Julian_1.jpg",
+            "heading": "Julian Klappach",
+            "subheading": "BI-Analyst",
+            "text": "Julian kümmert sich  um die Pflege unserer Marktplätze und die Beziehungen zu Schlüsselpartnern.",
+            "collection": "kinderbesteck-mit-gravur"
+          }
+        },
+        "text_NfQDCe": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Jessy.jpg",
+            "heading": "Jessica Lohfeldt",
+            "subheading": "Managerin",
+            "text": "Jessy zeichnet sich  durch hervorragendes Organisationsvermögen aus, das es ihr ermöglicht,  Projekte termingerecht und kostengünstig zu führen.",
+            "collection": "messlatte-kinder-holz"
+          }
+        }
+      },
+      "block_order": [
+        "text_9DiaeG",
+        "text_CH3hnp",
+        "text_NfQDCe"
+      ],
+      "settings": {
+      }
+    },
+    "about_section_f3MP6w": {
+      "type": "section-about",
+      "blocks": {
+        "text_AYFCUp": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Sebastian.jpg",
+            "heading": "Sebastian Krause",
+            "subheading": "Auszubildender",
+            "text": "Sebastian eignet sich  während seiner Ausbildung zum Kaufmann im Groß- und Außenhandel wichtige  berufliche Fähigkeiten an.",
+            "collection": "taufgeschenke-personalisiert"
+          }
+        },
+        "text_L7gkPY": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Olga.jpg",
+            "heading": "Olga Scheifele",
+            "subheading": "Creative Director",
+            "text": "Olga kreiert als  künstlerische Expertin täglich bezaubernde Designs für unsere Kundschaft.",
+            "collection": "brotdose-personalisiert"
+          }
+        },
+        "text_x7Cd9G": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ecksi.jpg",
+            "heading": "Sebastian Eckermann",
+            "subheading": "Head of Production",
+            "text": "Täglich graviert  Sebastian hunderte von Aufträgen mit außerordentlicher Sorgfalt und  Genauigkeit.",
+            "collection": "beissring-baby"
+          }
+        }
+      },
+      "block_order": [
+        "text_AYFCUp",
+        "text_L7gkPY",
+        "text_x7Cd9G"
+      ],
+      "settings": {
+      }
+    },
+    "about_section_HTpCQn": {
+      "type": "section-about",
+      "blocks": {
+        "text_mzebeG": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Leon.jpg",
+            "heading": "Leon Voigt",
+            "subheading": "Produktionsmitarbeiter",
+            "text": "Leon, unser Experte  für Liebesschlösser, graviert und versendet täglich hunderte dieser Stücke.",
+            "collection": "erinnerungsbox-baby"
+          }
+        },
+        "text_6JU3R7": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Dennis.jpg",
+            "heading": "Dennis Krüger",
+            "subheading": "Produktionsmitarbeiter",
+            "text": "Dennis beweist  täglich seine Vielseitigkeit im Lager, indem er alle anfallenden Aufgaben  effizient bewältigt.",
+            "collection": "babyparty-geschenke"
+          }
+        },
+        "text_w9xJfk": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Tim.jpg",
+            "heading": "Tim Warner",
+            "subheading": "Produktionsmitarbeiter",
+            "text": "Timmy, bekannt für  seine Schnelligkeit, ist als Laser-Operator unschlagbar.",
+            "collection": "babyparty-geschenke"
+          }
+        }
+      },
+      "block_order": [
+        "text_mzebeG",
+        "text_6JU3R7",
+        "text_w9xJfk"
+      ],
+      "settings": {
+      }
+    },
+    "about_section_xpVDNR": {
+      "type": "section-about",
+      "blocks": {
+        "text_C9dH3U": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ole.jpg",
+            "heading": "Ole Schliefkowitz",
+            "subheading": "Maschinenbauingenieur",
+            "text": "Oles Fähigkeiten  ermöglichen es uns, durch innovative Roboter im Alltag unterstützt zu werden.",
+            "collection": "christliche-geschenke"
+          }
+        },
+        "text_hPwDLj": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Steffen.jpg",
+            "heading": "Steffen Koops",
+            "subheading": "Webdesigner",
+            "text": "Steffen, unser  Experte für Shopify, optimiert kontinuierlich unsere Online-Plattform.",
+            "collection": "kinderbesteck-mit-gravur"
+          }
+        },
+        "text_PepiPK": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Denise.jpg",
+            "heading": "Denise Laser",
+            "subheading": "Designerin",
+            "text": "Denise, eine  talentierte Künstlerin, kreiert einzigartige Designs für unsere  Produktpalette.",
+            "collection": "messlatte-kinder-holz"
+          }
+        }
+      },
+      "block_order": [
+        "text_C9dH3U",
+        "text_hPwDLj",
+        "text_PepiPK"
+      ],
+      "settings": {
+      }
+    },
+    "about_section_G6myiw": {
+      "type": "section-about",
+      "blocks": {
+        "text_pmF4aA": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Elke2.jpg",
+            "heading": "Elke Hellwege",
+            "subheading": "Büroassistenz",
+            "text": "Elke sorgt mit ihrem  Organisationstalent dafür, dass unser Büroalltag reibungslos verläuft.",
+            "collection": "geschenke-zur-geburt"
+          }
+        }
+      },
+      "block_order": [
+        "text_pmF4aA"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "about_section_j3e8QE",
+    "about_section_JRazcL",
+    "about_section_f3MP6w",
+    "about_section_HTpCQn",
+    "about_section_xpVDNR",
+    "about_section_G6myiw"
+  ]
+}
